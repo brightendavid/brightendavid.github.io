@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文写作纪要 | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="免责声明！本文攥写主要用于自用记录，以防遗忘，不保证准确性。面向对象主要是学术小白（巧了，本人就是）  中文期刊最终的格式修正以中国图像图形学报为例 例如，本人收到的最后的格式修改编辑意见如下所示：  1）论文中的作者，只需要保留姓氏，例如J. Zhu等人(2018)提出了HiDDeN(Hidin"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文写作纪要',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-30 22:35:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">论文写作纪要</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-29T15:26:56.000Z" title="Created 2023-05-29 23:26:56">2023-05-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-30T14:35:10.302Z" title="Updated 2023-05-30 22:35:10">2023-05-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文写作纪要"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<h1 id="免责声明！"><a href="#免责声明！" class="headerlink" title="免责声明！"></a>免责声明！</h1><p>本文攥写主要用于自用记录，以防遗忘，不保证准确性。面向对象主要是学术小白（巧了，本人就是）</p>
+</blockquote>
+<h1 id="中文期刊"><a href="#中文期刊" class="headerlink" title="中文期刊"></a>中文期刊</h1><h2 id="最终的格式修正"><a href="#最终的格式修正" class="headerlink" title="最终的格式修正"></a>最终的格式修正</h2><p>以中国图像图形学报为例</p>
+<p>例如，本人收到的最后的格式修改编辑意见如下所示：</p>
+<blockquote>
+<p>1）论文中的作者，只需要保留姓氏，例如J. Zhu等人(2018)提出了HiDDeN(Hiding Data with Deep Networks)………… 要改为 Zhu等人</p>
+<p>(2018)提出了</p>
+<p>2）为方便编辑加工，请作者将文中所有公式和符号使用Mathtype重新撰写</p>
+<p>3）请作者按照体例要求对公式及变量的格式进行检查修改，格式要求：变量用斜体； 矩阵,矢量,向量,集合，数组，图像用黑斜体</p>
+<p>（黑即为加粗）； R(实数集),Z(整数集),N(自然数集)用正黑体； 且各变量要求加以说明，标准函数用正体</p>
+<p>4）避免使用方法的英文名称或英文缩写作为变量名和下标，尽量使用1-2个字母表示，例如公式1</p>
+<p>5）公式下对式中变量的说明，其前的“其中”统一为“式中”</p>
+<p>6）表1 的算法加上参考文献</p>
+<p>7）论文陈述的主语采用第三人称，不建议使用：我们等</p>
+<p>8）建议作者增加中文参考文献</p>
+</blockquote>
+<ul>
+<li><p>文献引用方式为<strong>一作姓氏</strong>  + 等人  +(年份)</p>
+</li>
+<li><p>首先出现英文缩写添加全称，大小写个人认为是需要和缩写一致的</p>
+</li>
+<li><p>使用Math-type写公式，wsp用户需要添加Math-type插件，WPS自带的公式编辑器不管用。我看官网上面的论文在线浏览，编辑似乎在所有能够加超链接的地方全部加入了超链接。</p>
+</li>
+<li><p>主要注意变量用斜体，图像用黑斜体。</p>
+</li>
+<li><p>不能直接使用英文全写或者常用的缩写，作为变量名称，比如残差res、载体图像cover（cov）、篡改图tempered_picture之类就是不能使用的，就是使用变量名x,y,z一类的变量</p>
+</li>
+<li><p>公式说明用式中？我感觉很牵强，专利里面也用“其中”的描述，它也没说什么。</p>
+</li>
+<li><p>指标对比的那个表格，算法要加入引用，总之要统一描述。加入引用主要是方便读者找对于的方法。这个期刊也很奇葩，不让用编号[1]这种引用格式，估计找起来很麻烦。</p>
+</li>
+<li><p>该期刊要求少用第一人称，如我们等、本文、本算法这种描述。将提出的算法称为A算法，提出的创新点直接给个名词。</p>
+</li>
+<li><p>因为是中文论文，据说是要求引用同期刊下的同领域文章，增加影响力。</p>
+</li>
+</ul>
+<h2 id="参考文献修正（不才似乎一直没弄明白参考文献格式）"><a href="#参考文献修正（不才似乎一直没弄明白参考文献格式）" class="headerlink" title="参考文献修正（不才似乎一直没弄明白参考文献格式）"></a>参考文献修正（不才似乎一直没弄明白参考文献格式）</h2><p>详见<a target="_blank" rel="noopener" href="http://www.cjig.cn/jig/ch/reader/view_news.aspx?id=20120907113607001">论文引用文献参考</a>，<strong>每个期刊的要求也不一样</strong></p>
+<p>如中国图像图形学报，主要需要注意的点如下：</p>
+<ul>
+<li><p>不要用[1]  [2]这种格式</p>
+</li>
+<li><p>引用排序按照作者首字母排序（这个可以写代码排序）</p>
+</li>
+<li><p>需要DOI，能找到DOI的全部都要，找不到的就算了</p>
+</li>
+<li><p>还有奇奇怪怪的要求就是一些标签如年份，卷期号的位置有些不一样</p>
+</li>
+</ul>
+<h3 id="常规要求"><a href="#常规要求" class="headerlink" title="常规要求"></a>常规要求</h3><blockquote>
+<p>（Liu X D and Chen Z Q. 2004. Research on several key problems in face recognition. Journal of Computer Research and Development，41(7)：1074-1080 (刘向东，陈兆乾.2004.人脸识别技术的研究. 计算机研究与发展， 41(7)：1074-1080) [ DOI:10.3969&#x2F;j.issn.1008-178X-B.2004.04.014]）</p>
+</blockquote>
+<ul>
+<li>如这篇文章，作者这块，要求  姓 名 的次序要全部一致。部分格式要求：不能出现”and”，全部使用逗号分割作者。</li>
+<li>缩写如CVPR,ICCV格式统一，全部删除或者全部保留，建议全部删除</li>
+<li>如果是页码这里只有一页，比如7，需要注意可能是论文编号，需要使用No.7替换</li>
+<li>尽量不要使用arXiv引用，替换为正式的期刊或会议，因为这类引用很麻烦，没有权威专家认证，而且电子数据库这种引用又不一样。</li>
+</ul>
+<h3 id="大写"><a href="#大写" class="headerlink" title="大写"></a>大写</h3><ul>
+<li>论文标题首字母大写</li>
+<li>所有缩写全部大写，比如JPEG、DNN。</li>
+<li>作者姓名首字母大写</li>
+<li>期刊名称，除了介词and,of这类的全部首字母大写</li>
+</ul>
+<h1 id="中文毕业论文"><a href="#中文毕业论文" class="headerlink" title="中文毕业论文"></a>中文毕业论文</h1><blockquote>
+<p>1.中英文逗号，写完之后查询一遍，在中文中查询英文标点符合，在英文中查询中文标点符合</p>
+<p>2.图小标题的abcd在正文中出现要加括号</p>
+<p>3.图表全部居中</p>
+<p>4.公式介绍中的变量要和公式里完全一样</p>
+<p>5.目录内容不能重复</p>
+<p>6.图里面名称太长就分行</p>
+<p>7.标号后面加空格</p>
+<p>8.图的要清晰，调大一点</p>
+<p>9.图不要有太多空白</p>
+</blockquote>
+<blockquote>
+<p>1.超像素分割与超像素不同，前者是一种技术方法，后者是一种表达形式，要表述准确</p>
+<p>2.第三章名字改为算法设计与实现</p>
+<p>3.3.1节边缘注意力应考虑调整顺序</p>
+<p>4.4.1节实现细节与参数设置应调整到第三章</p>
+<p>5.在章节小结中不应用 “第x.x节说明了…” 这种方式来描述，而是用“先…，其次…，最后…”来描述</p>
+<p>6.注意章节总起与章节小结的时态</p>
+<p>7.最终的总结章是对毕设工作的总结，而不是对文章的总结，展望字数太少</p>
+<p>8.patch改为图像块</p>
+<p>9.公式内部不要有多余空格，名字不要取太长</p>
+<p>10.图像中名称尽量要用中文</p>
+<p>11.网络结构要具体，具体到每一层的尺寸</p>
+<p>12.中英文冒号注意区分</p>
+<p>13.一句话连续出现两个“的”就要考虑是不是有问题</p>
+<p>14.“以及”一般是a，b以及c，如果只有两个应该是a和b</p>
+<p>15.首次提到论文应该是 中文（英文全称，英文缩写）</p>
+</blockquote>
+<blockquote>
+<ol>
+<li><pre><code>英文翻译杜绝中文式英文，特别是长名词组成的一串术语。例
+</code></pre>
+<p>迭代优化标注方法：<br>错误翻译：iterative optimization labeling method<br>正确翻译：iterative optimization based labeling method</p>
+</li>
+<li><pre><code>每章总起的语态不要使完成时，比如：
+</code></pre>
+<p>本章介绍了× 本章介绍√<br>了代表完成，应该在本章小结中出现，不应该在本章总起中出现。</p>
+</li>
+<li><pre><code>术语要全称，比如二阶段检测器全称不能说二阶段，并且不能频繁切换，比如一阶段检测器和端到端检测器一般要统称，不能一个地方用一阶段另一个地方用端到端。
+</code></pre>
+</li>
+<li><pre><code>引用放在最后，
+</code></pre>
+<p>例:Relation[4]方法× Relation方法[4]√</p>
+</li>
+<li><pre><code>本章小结和每章总起的内容不要重合，可以使用首先..其次..最后..句式。
+</code></pre>
+</li>
+<li><pre><code>图不能超过页边距，可以裁剪一下，图注上下居中。
+</code></pre>
+</li>
+<li><pre><code>主语问题仍然要仔细纠正。
+</code></pre>
+</li>
+<li><pre><code>labeling可以在最后提供链接，labelimg是本文使用的数据标注框架。
+</code></pre>
+</li>
+<li><pre><code>所有图片中的字体，如果正文中有出现，要在格式上保持统一。
+</code></pre>
+</li>
+</ol>
+<p>10.英文术语第一次出现要解释，或者翻译成中午后接括号解释。例：epoch map baseline anchor_free batch_size milestones等。</p>
+<ol start="11">
+<li><pre><code>公式中下面紧跟的是一段话，要顶格写。
+</code></pre>
+</li>
+<li><pre><code>表格 average precision 换成中文。
+</code></pre>
+</li>
+</ol>
+<p>13.参考文献题目的大小写要统一。</p>
+</blockquote>
+<p>有以下要点：</p>
+<ul>
+<li>图片题目要求具体，有多种方法同时出现的需要加入算法名称，和关键词。不能出现完全相同的题目，即使的相似的内容。</li>
+<li>注意模板要求的图片名称格式要求，如<u>图3.1 算法流程图</u> 这里的空格有时候在图后面，有时候是3.1的后面。<u>图4.9 在攻击情形下的本文算法提取水印信息（复合攻击1表示加入噪声、高斯模糊和亮度调整攻击；复合攻击2表示加入噪声、高斯模糊和亮度调整和扭曲攻击；复合攻击3表示加入噪声、高斯模糊和亮度调整攻击和放大攻击）</u>  像是这样长的标题也是可以的。</li>
+<li>正文目录尽量要求长度相等，例如</li>
+</ul>
+<blockquote>
+<p><a href="#_Toc17157">摘 要	</a></p>
+<p><a href="#_Toc13983">Abstract	</a></p>
+<p><a href="#_Toc27281">图片目录	</a></p>
+<p><a href="#_Toc4841">表格目录	</a></p>
+<p><a href="#_Toc15373">正文目录	</a></p>
+<p><a href="#_Toc19978">第1章 绪论	</a></p>
+<p><a href="#_Toc21506">1.1 背景与意义	</a></p>
+<p><a href="#_Toc8639">1.2 内容与创新	</a></p>
+<p><a href="#_Toc8009">1.3 章节安排	</a></p>
+<p><a href="#_Toc8542">1.4 本章小结	</a></p>
+</blockquote>
+<ul>
+<li>减少口语化描述，比如</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/">http://brightendavid.github.io/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/paper/">paper</a></div><div class="post_share"><div class="social-share" data-image="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/05/20/virture-human/" title="数字人企划"><img class="cover" src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">数字人企划</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">免责声明！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%9C%9F%E5%88%8A"><span class="toc-number">2.</span> <span class="toc-text">中文期刊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%9A%84%E6%A0%BC%E5%BC%8F%E4%BF%AE%E6%AD%A3"><span class="toc-number">2.1.</span> <span class="toc-text">最终的格式修正</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E4%BF%AE%E6%AD%A3%EF%BC%88%E4%B8%8D%E6%89%8D%E4%BC%BC%E4%B9%8E%E4%B8%80%E7%9B%B4%E6%B2%A1%E5%BC%84%E6%98%8E%E7%99%BD%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E6%A0%BC%E5%BC%8F%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">参考文献修正（不才似乎一直没弄明白参考文献格式）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E8%A6%81%E6%B1%82"><span class="toc-number">2.2.1.</span> <span class="toc-text">常规要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%99"><span class="toc-number">2.2.2.</span> <span class="toc-text">大写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87"><span class="toc-number">3.</span> <span class="toc-text">中文毕业论文</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/" title="论文写作纪要"><img src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文写作纪要"/></a><div class="content"><a class="title" href="/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/" title="论文写作纪要">论文写作纪要</a><time datetime="2023-05-29T15:26:56.000Z" title="Created 2023-05-29 23:26:56">2023-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/20/virture-human/" title="数字人企划"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字人企划"/></a><div class="content"><a class="title" href="/2023/05/20/virture-human/" title="数字人企划">数字人企划</a><time datetime="2023-05-20T11:13:38.000Z" title="Created 2023-05-20 19:13:38">2023-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/14/ts/" title="ts"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ts"/></a><div class="content"><a class="title" href="/2023/05/14/ts/" title="ts">ts</a><time datetime="2023-05-14T11:13:38.000Z" title="Created 2023-05-14 19:13:38">2023-05-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/" title="语音任务"><img src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="语音任务"/></a><div class="content"><a class="title" href="/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/" title="语音任务">语音任务</a><time datetime="2023-05-13T05:47:40.000Z" title="Created 2023-05-13 13:47:40">2023-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/18/ssh-and-ssl/" title="ssh and ssl"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ssh and ssl"/></a><div class="content"><a class="title" href="/2023/04/18/ssh-and-ssl/" title="ssh and ssl">ssh and ssl</a><time datetime="2023-04-18T12:39:51.000Z" title="Created 2023-04-18 20:39:51">2023-04-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
