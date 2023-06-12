@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>StegaStamp翻译 | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="StegaStamp: Invisible Hyperlinks in Physical Photographs经典外文翻译，对知乎上的同名翻译进行了优化，毕业设计里面万恶的外文翻译部分，一🐟两吃。 StegaStamp: 物理照片中的隐形超链接作者：MatthewTancik, BenMilde"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2023/06/12/StegaStamp%E7%BF%BB%E8%AF%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'StegaStamp翻译',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-12 22:55:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">StegaStamp翻译</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-06-12T14:49:33.000Z" title="Created 2023-06-12 22:49:33">2023-06-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-06-12T14:55:08.595Z" title="Updated 2023-06-12 22:55:08">2023-06-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="StegaStamp翻译"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="stegastamp-invisible-hyperlinks-in-physical-photographs">StegaStamp: Invisible Hyperlinks in Physical Photographs</span></h1><p>经典外文翻译，对知乎上的同名翻译进行了优化，毕业设计里面万恶的外文翻译部分，一🐟两吃。</p>
+<h1><span id="stegastamp-物理照片中的隐形超链接">StegaStamp: 物理照片中的隐形超链接</span></h1><p>作者：MatthewTancik, BenMildenhall, RenNg</p>
+<p>国籍：美国</p>
+<p>出处：Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition. 2020: 2117-2126.</p>
+<p><em><strong>*摘要*</strong></em>****：****打印和数字显示的照片能够隐藏可通过互联网连接的成像系统访问的不易察觉的数字数据。另一种思考方式是隐藏着独特的二维码的物理照片。本文介绍了解决这一愿景的架构、算法和原型实现。我们的关键技术贡献是StegaStamp，这是一种学习的隐写算法，它能够以接近感知不可见的方式将任意超链接位串稳健地编码和解码为照片。StegaStamp包含一个深度神经网络。该网络学习一种编码&#x2F;解码算法，对近似于真实打印和摄影产生的失真空间的图像扰动具有鲁棒性。我们演示了对来自自然场景下的视频的照片中的超链接进行实时解码，这些视频包含光照、阴影、透视、遮挡和观看距离的变化。我们的原型系统在纠错后能够可靠地检索56位超链接——足以在互联网上的每张照片中嵌入唯一代码。代码可以通过<a href="https://link.zhihu.com/?target=https://github.com/tancik/StegaStamp">https://github.com/tancik/StegaStamp</a>来获得。</p>
+<p><em><strong>*1.引言*</strong></em></p>
+<p>我们的愿景是现实世界中的每张照片都会无形地编码一个指向任意信息的独特超链接的未来。通过将相机对准照片并使用本文中描述的系统解码并跟踪超链接来访问此信息。在未来，增强现实（AR）系统可能会持续执行此任务，将检索到的信息视觉叠加在用户视图中的每张照片旁边。</p>
+<p>我们的方法与无处不在的QR码和类似技术有关，这些技术现在在各种数据传输任务中很常见，例如共享网址、购买商品和跟踪库存。我们的方法可以被认为是一种互补的解决方案，它避免了可见的、难看的条形码，并使数字信息不可见并融入现代视觉世界无处不在的意象中。</p>
+<p>值得花点时间考虑一下我们系统的三个潜在用例。第一，在农贸市场，摊位所有者可以在价格旁边添加每种产品的照片，并为客户提供有关源农场、营养信息、食谱和季节性供应的额外信息；第二，在大学系的大厅里，教师的照片目录可以通过为每个人的照片编码一个唯一的URL来增加，该URL包含教授的网页、办公时间、位置和方向；第三，纽约市的时代广场贴满了数字广告牌。显示的每个图像帧都可以使用包含有关产品、公司和促销交易的更多信息的URL进行编码。</p>
+<p>图1展示了我们的系统的概述，我们称之为StegaStamp。输入是图像和所需的超链接。首先，我们为超链接分配一个唯一的位串（类似于<a target="_blank" rel="noopener" href="http://tinyurl.com等url缩短服务所使用的过程).其次,我们使用我们的stegastamp编码器将位串嵌入到目标图像中.这会产生一个编码图像,该图像在理想情况下与输入图像在感知上相同.如第4节中详细描述的,我们的编码器是作为一个深度神经网络实现的,它与实现解码的第二个网络联合训练.第三,编码图像被物理打印(或显示在电子显示器上)并呈现在现实世界中.第四,用户拍摄包含物理打印的照片.第五,系统使用图像检测器来识别和裁剪所有图像.第六,使用stegastamp解码器处理每个图像以检索唯一的位串,该位串用于跟随超链接并检索与图像相关的信息./">http://tinyurl.com等URL缩短服务所使用的过程）。其次，我们使用我们的StegaStamp编码器将位串嵌入到目标图像中。这会产生一个编码图像，该图像在理想情况下与输入图像在感知上相同。如第4节中详细描述的，我们的编码器是作为一个深度神经网络实现的，它与实现解码的第二个网络联合训练。第三，编码图像被物理打印（或显示在电子显示器上）并呈现在现实世界中。第四，用户拍摄包含物理打印的照片。第五，系统使用图像检测器来识别和裁剪所有图像。第六，使用StegaStamp解码器处理每个图像以检索唯一的位串，该位串用于跟随超链接并检索与图像相关的信息。</a></p>
+<p>这种数据传输方法在隐写术和水印文献中都有悠久的历史。我们针对这个问题提出了第一个端到端训练的深度管道，即使在“物理传输”下也可以实现稳健的解码，提供足以编码和检索基本上无限数量图像的任意超链接的出色性能。我们扩展了传统的学习隐写术框架，具体方法为通过添加一组编码器和解码器之间的可微的，像素级和空间图像损坏，成功地逼近由“物理传输”（即实际打印或显示以及随后的图像捕获）导致的失真空间。结果是在现实条件下对95%的100个编码位进行稳健检索，同时保持出色的感知图像质量。这使我们的原型能够对隐藏的超链接进行唯一编码，以获取比当今互联网上存在的数量级更多的图像（上限为100万亿）。</p>
+<p><em><strong>*2.*</strong></em><em><strong>*相关工作*</strong></em></p>
+<p><em><strong>*2.1*</strong></em><em><strong>*.隐写*</strong></em></p>
+<p>隐写术是将数据隐藏在其他数据中的行为，其历史可以追溯到古希腊。我们提出的任务是一种隐写术，我们在图像中隐藏代码。已经开发了各种用于数字图像隐写术的方法。数据可以隐藏在图像的最低有效位、细微的颜色变化和细微的亮度变化中。通常方法旨在逃避隐写分析，即隐藏消息的检测[18,34]。我们将感兴趣的读者推荐综述[9,11]，这些调查回顾了一系列广泛的技术。</p>
+<p>与我们的提出的方法最相关的工作是利用深度学习对隐藏在图像中的消息进行编码和解码的方法[5,21,43,47,51,54,44]。我们的方法假设图像将被编码和解码步骤之间的显示成像管道破坏。除了HiDDeN[54]和光场信息传输（LFM）[45]之外，小的图像处理或损坏会使现有技术失去作用，因为它们的目标是在完美的、无扰动的数字环境中编码大量的每像素比特传送。<em><strong>*HiDDeN*<em><strong>在编码和解码之间引入了各种类型的噪声以提高鲁棒性，但仅关注通过数字图像处理（例如JPEG压缩和裁剪）可能发生的一组损坏。对于用作物理条形码，解码器不能假设完美对齐，因为在拍摄随意照片时保证会发生透视偏移和像素重采样。</strong></em>*LFM*</strong></em>[45]使用在手动拍摄监视器的大型数据集上训练的网络获得鲁棒性，以消除相机显示损坏。我们的方法不需要这种耗时的数据集捕获步骤，并且可以推广到打印图像；而对于打印图像这种介质，使用****LFM****提出的方法收集训练数据将更加困难。</p>
+<p><em><strong>*2.2.水印*</strong></em></p>
+<p>水印是一种隐写术的方式，长期以来一直被认为是一种将物理图像链接到因特网资源的潜在方式[2]。该领域的早期工作为鲁棒水印定义了一组理想的目标，包括对图像处理的不可见性和鲁棒性[7]。后来的研究证明了在对数极坐标频域中编码水印具有显着的鲁棒性优势[27,33,35,53]。类似的方法已经被优化用作交互式手机应用程序[13,31,36]。其他工作的重点是仔细地建模打印-相机变换[37,42]或显示-相机变换[17,46,50]以实现更好的信息传输。一些显示相机通信的方法利用了这种硬件组合的独特属性，例如偏振[49]、卷帘快门伪影[26]或高帧速率[12]。图像取证中的一项相关工作探索了是否可以使用CNN来检测图像何时被重新成像[16]。与之前水印工作中使用的手工设计的管道相比，我们的方法可以自动学习如何以一种对打印机&#x2F;显示器、相机、照明和视点的许多不同组合都具有鲁棒性的方式隐藏和传输数据。我们提供了一个训练这个系统的框架，并对其能力进行了严格的评估，证明它可以在许多现实世界场景中工作，并使用消融实验来展示我们训练中采取的扰动的相对重要性。</p>
+<p><em><strong>*2.3.*</strong></em><em><strong>*条形码*</strong></em></p>
+<p>条形码是将短数据串传输到计算设备的最流行的解决方案之一，只需要简单的硬件（激光阅读器或相机）和用于打印或显示代码的区域。传统条形码是一维模式，其中交替粗细的条形码编码不同的值。无处不在的高质量手机摄像头导致经常使用二维QR码在手机之间传输数据。例如，用户可以共享联系信息、支付商品、跟踪库存或从广告中检索优惠券。</p>
+<p>过去的研究已经解决了使用相机对现有或新的条形码设计进行稳健解码的问题[29,32]。一些设计特别利用相机在简单激光扫描仪之外以各种方式增加的功能，例如将颜色合并到条形码中[8]。其他工作提出了一种方法，该方法可以确定条形码应该放在图像上的什么位置以及应该使用什么颜色来提高机器的可读性[30]。</p>
+<p>另一种特殊类型的条形码专门设计用于传输小型标识符和精确的六自由度方向，用于相机定位或校准，例如ArUco标记[19,38]。胡等人[22]训练了一个深度网络，在具有挑战性的现实世界条件下定位和识别ArUco标记。然而，他们的重点是对高度可见的预先存在的标记进行稳健检测，而不是对隐藏在任意自然图像中的消息进行鲁棒解码。</p>
+<p><em><strong>*2.4.强大的对抗性图像攻击*</strong></em></p>
+<p>针对对象分类CNN的对抗性图像攻击旨在最大限度地减少对图像的干扰，以产生不正确的分类。与我们的工作最相关的是物理世界中对抗性示例的演示[4,10,15,25,28,40,41]，其中系统通过物理地建模逼真的扰动（即仿射图像扭曲）、加性噪声和JPEG压缩进行建模来，使成像应用的具有鲁棒性。简等人[25]采用不同的方法，明确训练神经网络以复制成像系统添加的失真，并表明将攻击应用于失真图像会提高成功率。</p>
+<p>这些结果表明，在图像经过成像管道后，网络仍然会受到小扰动的影响。我们提出的任务有一些相似之处；然而，分类任务是标注是n≈2100个标签中的1个，而我们的目标是唯一解码2m条消息中的1个，其中m≈100编码位数。此外，对抗性攻击通常不会修改解码器网络，而我们明确地训练我们的解码器与编码器合作以实现最大限度的的信息传输。</p>
+<p><em><strong>*3.*</strong></em><em><strong>*训练真实世界鲁棒性*</strong></em></p>
+<p>在训练期间，我们在编码器和解码器之间应用图3中概述的一组可微图像扰动来近似由物理显示和成像StegaStamps引起的失真。之前合成鲁棒对抗样本的工作使用了一种类似的方法来攻击自然场景下的分类网络（称为“期望转换”），尽管他们使用了一组更有限的转换[4]。HiDDeN[54]使用非空间扰动来增强他们的隐写流水线，仅针对数字扰动。Deep ChArUco[22]使用空间和非空间扰动来训练专门用于ChArUco基准标记板的鲁棒检测器。我们结合了所有这些工作的想法，训练了一个编码器和解码器，通过物理显示成像管道鲁棒地传输隐藏信息。</p>
+<p><em><strong>*3.1.透视变形*</strong></em></p>
+<p>假设针孔相机模型，同一平面的任何两个图像都可以通过单应性关联。我们生成一个随机单应性来模拟未与编码图像标记精确对齐的相机的效果。为了对单应性（homography）进行采样，我们在固定范围内（最多±40个像素，即±10%）均匀地随机扰动标记的四个角位置，然后求解将原始角映射到新位置的单应性。我们对原始图像进行线性重采样以创建透视扭曲图像。</p>
+<p><em><strong>*3.2.运动和散焦模糊*</strong></em></p>
+<p>相机运动和不准确的自动对焦都可能导致模糊。为了模拟运动模糊，我们对随机角度进行采样并生成宽度在3到7像素之间的直线模糊核。为了模拟散焦，我们使用高斯模糊核，其标准偏差在1到3个像素之间随机采样。</p>
+<p><em><strong>*3.3.颜色处理*</strong></em></p>
+<p>与完整的RGB色彩空间相比，打印机和显示器的色域有限。相机使用曝光设置、白平衡和色彩校正矩阵来修改它们的输出。我们用一系列随机仿射颜色变换（在整个图像中保持不变）来近似这些扰动，如下所示：</p>
+<p>1.色调偏移：向从[−0.1,0.1]均匀采样的每个RGB通道添加随机颜色偏移。</p>
+<p>2.去饱和：在完整的RGB图像与其等效灰度图像之间进行随机线性插值。</p>
+<p>3.亮度和对比度：仿射直方图用<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps1.png" alt="img">和<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps2.png" alt="img">重新缩放<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps3.png" alt="img">。</p>
+<p>在这些变换之后，我们将这些色彩通道像素值限制为[0,1]区间。</p>
+<p><em><strong>*3.4.*</strong></em><em><strong>*噪音*</strong></em></p>
+<p>相机系统引入的噪声得到了很好的研究，包括光子噪声、暗噪声和散粒噪声[20]。我们假设标准的非见光度缺乏成像条件，采用高斯噪声模型（采样标准偏差<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps4.png" alt="img">）来制作成像噪声。</p>
+<p><em><strong>*3.5.压缩*</strong></em></p>
+<p>相机图像通常以有损格式存储，例如JPEG。JPEG通过计算图像中每个8×8块的离散余弦变换并通过四舍五入到最接近的整数（在不同频率下的不同强度）来量化结果系数来压缩图像。这个舍入步骤是不可微的，所以我们使用Shin和Song[40]的技巧来用分段函数近似表示零附近的量化步骤，公式如下</p>
+<p><img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps5.png" alt="img">              (1)</p>
+<p>该函数几乎处处都有非零导数。我们在[50,100]的区间内均匀地采样JPEG压缩质量。</p>
+<p><em><strong>*4.*</strong></em><em><strong>*实现细节*</strong></em></p>
+<p><em><strong>*4.1.Encoder编码器*</strong></em></p>
+<p>编码器经过训练，可以将消息嵌入到图像中，同时最小化输入图像和编码图像之间的感知差异。我们使用U-Net[39]风格的架构，接收四通道400×400像素输入（输入图像RGB通道加上一个用于消息的通道）并输出三通道RGB残差图像。输入消息表示为100位二进制字符串，通过全连接层处理形成50×50×3的张量，然后上采样产生400×400×3的张量。我们发现，应用这样的消息预处理有助于模型收敛。我们在图2中展示了编码图像的示例。</p>
+<p><em><strong>*4.2.Decoder解码器*</strong></em></p>
+<p>解码器是一个被训练用于从编码图像中恢复隐藏信息的网络。空间变换器网络[24]用于开发针对在捕获和校正编码图像时引入的小的透视变化的鲁棒性。转换后的图像通过一系列卷积层和密集层以及Sigmoid来产生与消息长度相同的最终输出。解码器网络使用交叉熵损失进行监督。</p>
+<p><em><strong>*4.3.Detector探测器*</strong></em></p>
+<p>为了现实世界的使用，我们必须在解码之前在宽视场图像中检测和校正StegaStamps，因为解码器网络本身并不能处理更大图像中的完整检测。我们对现成的语义分割网络BiSeNet[48]进行微调，以分割图像中被认为包含StegaStamps的区域。该网络使用嵌入到从DIV2K[1]采样的高分辨率图像中随机变换的StegaStamps数据集进行训练。在测试时，我们将一个四边形拟合到每个网络提议区域的凸包，然后计算一个单应性以将每个四边形透视畸变矫正回400×400像素的图像以供解码器解析。</p>
+<p><em><strong>*4.4.编码器&#x2F;解码器训练程序*</strong></em></p>
+<p><em><strong>*训练数据*</strong></em> 在训练期间，我们使用来自MIRFLICKR数据集[23]的图像（重新采样到400×400分辨率）与随机采样的二进制消息相结合。</p>
+<p><em><strong>*评论器*</strong></em> 作为我们总损失的一部分，我们使用一个评论网络来预测消息是否在图像中编码，并用作编码器&#x2F;解码器管道的感知损失。该网络由一系列卷积层和最大池化组成。为了训练评论器，输入图像和编码图像被分类，Wasserstein损失[3]被用作监督信号。评论器的训练与编码器&#x2F;解码器的训练交错。</p>
+<p><em><strong>*损失*</strong></em> 为了对编码的StegaStamp实施最小的感知失真，我们使用<strong>L****2</strong>残差正则化<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps6.png" alt="img">、LPIPS感知损失[52]<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps7.png" alt="img">和在编码图像和原始图像之间计算的评论器损失<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps8.png" alt="img">。我们对消息使用交叉熵损失<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps9.png" alt="img">。训练损失是这些损失成分的加权和。</p>
+<p><img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps10.png" alt="img">        (2)</p>
+<p>我们发现，在训练网络时，三个损失函数调整策略特别有助于收敛：</p>
+<p>1.当解码器训练到高精度时，这些图像损失权重<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps11.png" alt="img">必须最初设置为零，然后线性增加<img src="/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/wps12.png" alt="img">。</p>
+<p>2.图像扰动强度也必须从零开始。透视扭曲是最敏感的扰动，并且以最慢的速度增加。</p>
+<p>3.该模型学习在图像边缘添加分散注意力的图案（可能有助于定位）。我们通过余弦衰减增加边缘处<strong>L****2</strong>损失的权重来减轻这种影响。</p>
+<p><em><strong>*5.真实世界和基于模拟的评估*</strong></em></p>
+<p>我们在真实世界条件和显示成像管道的合成近似下测试我们的系统。我们展示了我们的系统在自然场景下工作，并在不受控制的室内和室外环境中恢复消息。我们在受控的现实世界环境中评估我们的系统，其中包含6台不同显示器&#x2F;打印机和3台不同相机的18种组合。综合所有设置（捕获1890张图片），我们实现了98.7%的平均位精度。我们使用四种不同的训练模型进行真实和合成消融研究，以验证我们的系统对我们在训练期间应用的每种扰动都是鲁棒的，并且忽略这些改进策略会显著降低性能。</p>
+<p><em><strong>*5.1.*</strong></em><em><strong>*自然场景下*</strong></em><em><strong>*鲁棒性*</strong></em></p>
+<p>我们的方法在各种真实环境中捕获的手持手机摄像头视频上进行了测试。StegaStamps在消费级打印机上打印。具有检测到的四边形和解码精度的捕获帧示例如图4所示。当StegaStamp的部分被其他对象覆盖时，我们还展示了令人惊讶的鲁棒性水平（图5）。请查看我们关于真实世界StegaStamp解码的大量示例补充视频，其中包括使用BCH纠错码完美恢复56位消息的示例[6]。我们通常能够发现，如果边界矩形定位准确，解码精度就很高。但是，检测器可能会错过视频帧子集上的StegaStamp。实际上这不是问题，因为代码只需要恢复一次。我们期望未来的扩展，包含时间信息和自定义检测网络可以进一步提高检测一致性。</p>
+<p><em><strong>*5.2.受控的真实世界实验*</strong></em></p>
+<p>为了证明我们的模型从合成扰动推广到真实的物理显示成像管道，我们进行了一系列测试，其中编码的图像被打印或显示，由相机重新捕获，然后解码。我们从ImageNet数据集[14]中随机选择100张不重复的图像（与我们的训练集不相交），并在每张图像中嵌入随机的100位消息。我们为总共105个测试图像生成5个具有相同源图像但不同消息的额外stegastamp。我们在具有固定照明的暗室中进行实验。打印的图像被固定在一个装置中以保持一致性，并由安装在三脚架上的相机捕获。生成的照片经过手工裁剪、校正并通过解码器。</p>
+<p>这些图像使用消费者打印机打印（HP LaserJet Pro M281fdw）、企业打印机（HP Laser Jet Enterprise CP4025）和商业打印机（Xerox 700i Digital Color Press）。这些图像还在磨砂1080p显示器（DellST2410）、有反光的高DPI笔记本电脑屏幕（Macbook Pro15英寸）和OLED手机屏幕（iPhone X）上进行数字显示。为了对StegaStamps进行成像，我们使用高清网络摄像头（Logitech C920）、手机摄像头（Google Pixel3）和DSLR摄像头（Canon5D MarkII）。所有设备都使用其出厂校准设置。105张图像中的每一张都是通过6个媒体和3个摄像机的所有18种组合捕获的。结果如表1所示。我们的方法在显示器&#x2F;打印机和相机的各种不同组合中具有高度鲁棒性。其中，三分之二的场景产生100%的中位数精度，第5百分位的准确率有至少95%的完美解码。我们对所有1890张捕获的图像的平均准确率为98.7%。</p>
+<p>使用由手机摄像头+消费者打印机组合组成的测试集，我们将我们方法的变体（在第5.3节中进一步描述）与图6中的Baluja[5]、HiDDeN[54]和LFM[44]进行比较。我们的模型使用相同的架构，但经过不同增强的训练；名称标注None、Pixelwise、Spatial和All表示在训练期间应用了哪些类别的扰动。我们看到Baluja[5]，用最少量的增强噪声（类似于我们的None变体）训练的性能并不比我们猜测的好。HiDDeN[54]合并了一个增强模块到他们方法的训练管道，以增加对扰动的鲁棒性。他们的方法是通过一组像素级的扰动以及“裁剪”增强来训练的，该增强可以屏蔽掉一个随机图像区域。然而，它缺乏对图像进行空间重采样的增强，我们发现它的准确性介于我们的Pixelwise变体和Spatial变体之间。LFM[44]专门训练“失真”网络来模拟显示和重新捕获编码图像的效果，在他们从25个显示器&#x2F;相机对收集的超过100万张图像的数据集上进行训练。在这个领域（“屏幕”），我们发现LFM表现相当不错。但是，它并没有推广到打印机&#x2F;相机管道（“打印机”）。有关比较方法的测试详细信息，请参阅补充。在我们自己的消融实验变体中，我们看到仅使用空间扰动进行训练比仅使用像素级扰动产生显着更高的性能；然而，Spatial仍然不能可靠地恢复足够的数据以供实际使用。我们提出的方法（All）结合了像素级和空间扰动，在很大程度上实现了最精确和最准确的结果。</p>
+<p><em><strong>*5.3.合成消融测试*</strong></em></p>
+<p>我们测试了使用第3节中图像扰动的不同子集进行训练如何影响合成实验中的解码精度（图7）。我们评估我们的基础模型（经过所有扰动训练）和另外三个模型（在没有扰动、只有像素级扰动和只有空间扰动的情况下训练）。大多数关于学习图像隐写术的工作都集中在尽可能多地隐藏信息，假设在解码之前不会发生损坏（如在我们的“无扰动”模型中）。</p>
+<p>我们对1000张图像进行了更详尽的合成消融研究，以分别测试每个训练时间扰动对准确性的影响。图7中显示的结果遵循与现实世界比较测试类似的模式。在没有扰动的情况下训练的模型对颜色扭曲和噪声具有惊人的鲁棒性，但在出现扭曲、模糊或任何级别的JPEG压缩时立即失败。仅使用像素级扰动的训练对这些增强产生了很高的鲁棒性，但仍然使网络容易受到来自扭曲或模糊的任何数量的像素重采样的影响。另一方面，仅使用空间扰动进行训练也可以提高对JPEG压缩的鲁棒性（可能是因为它具有与模糊相似的低通滤波效果）。同样，使用空间和像素增强进行训练会产生最佳结果。</p>
+<p><em><strong>*5.4.实用消息长度*</strong></em></p>
+<p>我们的模型可以被训练来存储不同数量的比特。在之前的所有示例中，我们使用的消息长度为100。图8比较了来自四个具有不同消息长度的单独训练模型的编码图像。更长的消息长度更难编码和解码；因此，我们的方法在恢复准确性和感知相似性之间有所权衡。相关的图像指标在表2中报告。在训练时，我们对图像和消息损失进行了调整，这使得比特准确率收敛到至少95%。</p>
+<p>我们选择100位的消息长度，因为它在图像质量和信息传输之间提供了良好的折衷。给定至少95%的恢复精度估计，我们可以使用BCH码[6]对至少56个纠错位进行编码。正如引言中所讨论的，这使我们能够将历史中记录的每个图像唯一地映射到相应的StegaStamp。考虑到纠错，仅使用50个总消息位将大大减少可能的编码超链接的数量，能够提供的超链接数量将会下降到10亿以下。而消息编码150或200位将会造成图像质量下降更为明显。</p>
+<p><em><strong>*5.5.限制*</strong></em></p>
+<p>尽管我们的系统在现实世界中的成功率很高，但距离实现广泛部署还有很多步骤。尽管我们的方法的水印在高频纹理中通常非常微小，但编码器网络添加的残差有时在图像中较大的低频区域中是可感知的。未来的工作可以改进我们的架构和损失函数，以生成更微妙的编码。</p>
+<p>此外，我们发现我们现成的检测网络是我们在实际测试期间解码性能的瓶颈。一个编码器&#x2F;解码器端到端优化的自定义检测架构可以提高检测性能。当前框架还假设StegaStamps将是单一的方形图像，用于检测。我们认为，将多个代码无缝嵌入到单个更大的图像（例如海报或广告牌）中可以提供更大的灵活性。</p>
+<p><em><strong>*6.*</strong></em><em><strong>*结论*</strong></em></p>
+<p>我们提出了一个端到端的深度学习框架，用于将56位纠错超链接编码为任意自然图像。我们的网络通过图像扰动模块进行训练，该模块允许它们泛化到现实世界的显示成像管道。我们在实验设置中展示了我们的方法在各种打印机、屏幕和相机组合中的强大解码性能。我们还表明，我们的方法足够稳定，可以在自然场景下部署作为现有条形码的替代品，本方法与现有条形码相比侵入性更小、更美观。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2023/06/12/StegaStamp%E7%BF%BB%E8%AF%91/">http://brightendavid.github.io/2023/06/12/StegaStamp%E7%BF%BB%E8%AF%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/paper/">paper</a></div><div class="post_share"><div class="social-share" data-image="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/06/12/%E8%80%83%E7%A0%94%E5%BF%83%E5%BE%97/" title="考研心得"><img class="cover" src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">考研心得</div></div></a></div><div class="next-post pull-right"><a href="/2023/06/08/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" title="学习计划"><img class="cover" src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">学习计划</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">StegaStamp: Invisible Hyperlinks in Physical Photographs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">StegaStamp: 物理照片中的隐形超链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/12/%E8%80%83%E7%A0%94%E5%BF%83%E5%BE%97/" title="考研心得"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="考研心得"/></a><div class="content"><a class="title" href="/2023/06/12/%E8%80%83%E7%A0%94%E5%BF%83%E5%BE%97/" title="考研心得">考研心得</a><time datetime="2023-06-12T14:49:49.000Z" title="Created 2023-06-12 22:49:49">2023-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/12/StegaStamp%E7%BF%BB%E8%AF%91/" title="StegaStamp翻译"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StegaStamp翻译"/></a><div class="content"><a class="title" href="/2023/06/12/StegaStamp%E7%BF%BB%E8%AF%91/" title="StegaStamp翻译">StegaStamp翻译</a><time datetime="2023-06-12T14:49:33.000Z" title="Created 2023-06-12 22:49:33">2023-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/08/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" title="学习计划"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="学习计划"/></a><div class="content"><a class="title" href="/2023/06/08/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" title="学习计划">学习计划</a><time datetime="2023-06-08T12:15:55.000Z" title="Created 2023-06-08 20:15:55">2023-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/06/qt/" title="qt"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="qt"/></a><div class="content"><a class="title" href="/2023/06/06/qt/" title="qt">qt</a><time datetime="2023-06-06T07:23:00.000Z" title="Created 2023-06-06 15:23:00">2023-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/" title="论文写作纪要"><img src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文写作纪要"/></a><div class="content"><a class="title" href="/2023/05/29/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E7%BA%AA%E8%A6%81/" title="论文写作纪要">论文写作纪要</a><time datetime="2023-05-29T15:26:56.000Z" title="Created 2023-05-29 23:26:56">2023-05-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
