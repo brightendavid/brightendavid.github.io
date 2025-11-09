@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh-CN">
+<head>
+    <title>Lagrange插值多项式</title>
+    <script src="lflr.js" defer></script>
+    <link rel="stylesheet" href="../css/pico.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>Lagrange插值多项式计算器</h1>
+    <div>
+        <label for="points">输入点 (格式: 1,2;3,4;5,6;...): </label>
+        <input type="text" id="points" placeholder="例如: 1,2;3,4;5,6">
+    </div>
+    <button onclick="calculateLagrange()">计算</button>
+    <div id="result"></div>
+    <div id="expression"></div>
+    <div id="slowexpress">expression</div>
+</body>
+</html>
+
+
