@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>语音任务 | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="语音 分割 转文字 文字-实际文字配对   text-to-speech (TTS)  VAD-python需要给定一些超参数，如窗口等 改动该参数，不大行 silero-vad-master修改代码之后可以得到分离或者合并的声音  run silero-vad.ipnb  语音识别​      p"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>语音任务 | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="语音  分割 转文字 文字-实际文字配对  text-to-speech (TTS) VAD-python 需要给定一些超参数，如窗口等 改动该参数，不大行 silero-vad-master 修改代码之后可以得到分离或者合并的声音  run silero-vad.ipnb"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
@@ -149,56 +149,72 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">语音任务</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-13T05:47:40.000Z" title="Created 2023-05-13 13:47:40">2023-05-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-24T11:49:06.398Z" title="Updated 2023-05-24 19:49:06">2023-05-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="语音任务"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="语音">语音</span></h1><ul>
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">语音任务</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-13T05:47:40.000Z" title="Created 2023-05-13 13:47:40">2023-05-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-24T11:49:06.398Z" title="Updated 2023-05-24 19:49:06">2023-05-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="语音任务"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="语音">语音</span></h1>
+<ul>
 <li>分割</li>
 <li>转文字</li>
 <li>文字-实际文字配对</li>
 </ul>
-<p> <strong>text-to-speech (TTS)</strong> </p>
-<h1><span id="vad-python">VAD-python</span></h1><p>需要给定一些超参数，如窗口等</p>
+<p><strong>text-to-speech (TTS)</strong></p>
+<h1><span id="vad-python">VAD-python</span></h1>
+<p>需要给定一些超参数，如窗口等</p>
 <p>改动该参数，不大行</p>
-<h1><span id="silero-vad-master">silero-vad-master</span></h1><p>修改代码之后可以得到分离或者合并的声音</p>
+<h1><span id="silero-vad-master">silero-vad-master</span></h1>
+<p>修改代码之后可以得到分离或者合并的声音</p>
 <ul>
 <li>run silero-vad.ipnb</li>
 </ul>
-<h1><span id="语音识别">语音识别</span></h1><p>​      <strong><a target="_blank" rel="noopener" href="https://github.com/shibing624/parrots">parrots</a></strong></p>
+<h1><span id="语音识别">语音识别</span></h1>
+<p>​ <strong><a target="_blank" rel="noopener" href="https://github.com/shibing624/parrots">parrots</a></strong></p>
 <p>这个项目看web页面好像不大灵。</p>
-<p>​      <strong><a target="_blank" rel="noopener" href="https://github.com/chenmingxiang110/Chinese-automatic-speech-recognition">Chinese-automatic-speech-recognition</a></strong></p>
-<h1><span id="语音匹配">语音匹配</span></h1><p>获取的翻译为utf-8编码，获取的gt为gbk编码</p>
+<p>​ <strong><a target="_blank" rel="noopener" href="https://github.com/chenmingxiang110/Chinese-automatic-speech-recognition">Chinese-automatic-speech-recognition</a></strong></p>
+<h1><span id="语音匹配">语音匹配</span></h1>
+<p>获取的翻译为utf-8编码，获取的gt为gbk编码</p>
 <p>读写txt需要进行编码选择</p>
 <p>exl表格语音-文本，需要成功匹配。</p>
-<h2><span id="剧本gt获取">剧本gt获取</span></h2><p>通过splitewps.py，选取”角色：“为关键词。在splitewps.py中运行splite_word(word),注意word(<strong>角色名</strong>)中的关键词长度不同，不能直接通过[4:]的方式截取台词部分</p>
+<h2><span id="剧本gt获取">剧本gt获取</span></h2>
+<p>通过splitewps.py，选取”角色：“为关键词。在splitewps.py中运行splite_word(word),注意word(<strong>角色名</strong>)中的关键词长度不同，不能直接通过[4:]的方式截取台词部分</p>
 <p>其中，word为一个包含角色名的list</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># word=[&quot;辛倩：&quot;,&quot;安灵：&quot;,&quot;纪书兰：&quot;]</span><br><span class="line"># word = [&quot;关菡：&quot;]</span><br></pre></td></tr></table></figure>
-
 <p>将不同角色的台词分离为以角色名命名的txt文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">### luan.txt</span><br><span class="line">请进。</span><br><span class="line">坐。</span><br><span class="line">你自己看看这个视频。</span><br><span class="line">唐若遥，你是不是觉得自己很了不起？自己给对家送子弹？</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>最终的输出形式为人名命名的txt文件</li>
 </ul>
-<p><img src="/image-20230426144125829.png" alt="image-20230426144125829"></p>
-<h2><span id="语音转文字">语音转文字</span></h2><p>所得翻译文本一行对应一个音频，对应音频按照数字递增+wav后缀即可</p>
-<p>&#x2F;data&#x2F;project&#x2F;ASR 使用服务器yh下的该项目，之前把识别为空的wav没有加上空行</p>
+<figure>
+<img src="/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/image-20230426144125829.png" alt="image-20230426144125829">
+<figcaption aria-hidden="true">image-20230426144125829</figcaption>
+</figure>
+<h2><span id="语音转文字">语音转文字</span></h2>
+<p>所得翻译文本一行对应一个音频，对应音频按照数字递增+wav后缀即可</p>
+<p>/data/project/ASR
+使用服务器yh下的该项目，之前把识别为空的wav没有加上空行</p>
 <p>虽然实际上识别为空行的非常少,但是确实有一两句话是有空行的，主要是行号要和wav文件名对应</p>
 <p>导致识别语句和实际音频会有错位</p>
 <p>需要重写代码，加入空行语句</p>
-<h2><span id="语音-文本匹配">语音-文本匹配</span></h2><ul>
-<li><p>在匹配过程中，删除了一些空行。</p>
-</li>
-<li><p>字典1{“fanyi”，“翻译文件名称.wav”}</p>
-</li>
-<li><p>判定翻译与gt后，加入索引，索引能够对应同一个gt即可，获得字典2{ “fanyi”:”” , “pipe”: “”},按照“pipei”字段，最后汇总表格。获得gt(文字一行)-fanyi（音频文件名  多个）</p>
-</li>
-<li><p>字典1，字典2  字段合并</p>
-</li>
+<h2><span id="语音-文本匹配">语音-文本匹配</span></h2>
+<ul>
+<li><p>在匹配过程中，删除了一些空行。</p></li>
+<li><p>字典1{“fanyi”，“翻译文件名称.wav”}</p></li>
+<li><p>判定翻译与gt后，加入索引，索引能够对应同一个gt即可，获得字典2{
+“fanyi”:“” , “pipe”:
+““},按照“pipei”字段，最后汇总表格。获得gt(文字一行)-fanyi（音频文件名
+多个）</p></li>
+<li><p>字典1，字典2 字段合并</p></li>
 </ul>
 <p>单条文本可以对应多条语音</p>
-<p>文本带有标点，但是使用无标点的文本  和  文本转文字   获得的文字进行匹配</p>
+<p>文本带有标点，但是使用无标点的文本 和 文本转文字
+获得的文字进行匹配</p>
 <p>只对能匹配的文本进行匹配</p>
 <p>最终获得表格-包括语句-对应音频文件名多个</p>
 <p>之后进行音频的合并</p>
 <table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 32%">
+<col style="width: 56%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr>
 <th>0</th>
@@ -207,13 +223,15 @@
 <th>0.wav</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1</td>
 <td>明天九点接我去公司下午回家</td>
 <td>随便找个宾馆吧，明天九点接我去公司,下午回家。</td>
 <td>1.wav</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>解决了空识别跳过导致的wav名称和内容不匹配的问题，可能只有一处是空识别</li>
 <li>依据标点分割</li>
@@ -221,50 +239,55 @@
 <li>是子集，则直接放入语音识别的文本到字典</li>
 <li>不是子集，但是有一定的相似度，则放gt文本到字典</li>
 </ul>
-<h1><span id="语音fake生成">语音fake生成</span></h1><p><a target="_blank" rel="noopener" href="https://github.com/CorentinJ/Real-Time-Voice-Cloning/">https://github.com/CorentinJ/Real-Time-Voice-Cloning/</a></p>
+<h1><span id="语音fake生成">语音fake生成</span></h1>
+<p>https://github.com/CorentinJ/Real-Time-Voice-Cloning/</p>
 <ul>
 <li>中文无法使用，有</li>
 <li>使用给定的英文音频可以使用</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/Kevin676/ChatGPT-with-Voice-Cloning-for-All">https://huggingface.co/spaces/Kevin676/ChatGPT-with-Voice-Cloning-for-All</a>  </p>
+<p>https://huggingface.co/spaces/Kevin676/ChatGPT-with-Voice-Cloning-for-All</p>
 <ul>
 <li>不大行</li>
 <li>作者建议使用女声进行voice clone，生成声音完全不像</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/vincentherrmann/pytorch-wavenet">https://github.com/vincentherrmann/pytorch-wavenet</a></p>
+<p>https://github.com/vincentherrmann/pytorch-wavenet</p>
 <ul>
 <li>跑不起来，数据集搞不懂</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/wiki/PaddleSpeech-CLI-Architecture">https://github.com/PaddlePaddle/PaddleSpeech/wiki/PaddleSpeech-CLI-Architecture</a></p>
+<p>https://github.com/PaddlePaddle/PaddleSpeech/wiki/PaddleSpeech-CLI-Architecture</p>
 <p>paddle应该是可以用的</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv20153960">https://www.bilibili.com/read/cv20153960</a> <strong>MockingBird</strong></p>
+<p>https://www.bilibili.com/read/cv20153960
+<strong>MockingBird</strong></p>
 <p>实际上是对Real-Time-Voice-Cloning使用了中文的预训练模型并开发了前端。</p>
 <p>不大行。封装版本无法进行训练，作者建议使用女声进行测试</p>
 <p>弄不好</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/SayaSS/vits-finetuning">https://github.com/SayaSS/vits-finetuning</a></p>
+<p>https://github.com/SayaSS/vits-finetuning</p>
 <p>日语vit模型，python讲日语的库无法安装</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/innnky/trump/blob/main/app.py">https://huggingface.co/spaces/innnky/trump/blob/main/app.py</a></p>
+<p>https://huggingface.co/spaces/innnky/trump/blob/main/app.py</p>
 <p>看出使用了transformer模块，可能使用的是vits</p>
 <p>trump微调模型，中文也能跑，声音奇奇怪怪的但是还行。</p>
 <p>使用英文转trump效果还行，比如使用希拉里转trump</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/PlayVoice/vits_chinese">https://github.com/PlayVoice/vits_chinese</a></p>
+<p>https://github.com/PlayVoice/vits_chinese</p>
 <p>中文VITS，还没跑完，数据集搞不懂</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Plachtaa/VITS-fast-fine-tuning">https://github.com/Plachtaa/VITS-fast-fine-tuning</a></p>
+<p>https://github.com/Plachtaa/VITS-fast-fine-tuning</p>
 <p>在colab上跑，fine tune训练有问题,可能是样本不足的问题。</p>
 <p>colab用完了免费算力。</p>
 <p>重新测试，使用大约12分钟的训练数据集，大概能看</p>
 <ul>
-<li>2023&#x2F;4&#x2F;25 感觉TTS(text to speech):200epoch的模型测试还行</li>
-<li>可以使用vc（voice clone），但是需要转换前后都有声音模型，即需要已知音频之间的转换</li>
+<li>2023/4/25 感觉TTS(text to speech):200epoch的模型测试还行</li>
+<li>可以使用vc（voice
+clone），但是需要转换前后都有声音模型，即需要已知音频之间的转换</li>
 <li>重新使用大约30分钟的音频训练效果还行，有那个味道。</li>
 </ul>
-<p><strong>paddlespeech</strong> <a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/4573549?sUid=2470186&amp;shared=1&amp;ts=1663753541400">https://aistudio.baidu.com/aistudio/projectdetail/4573549?sUid=2470186&amp;shared=1&amp;ts=1663753541400</a></p>
-<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/6037057">https://aistudio.baidu.com/aistudio/projectdetail/6037057</a></p>
+<p><strong>paddlespeech</strong>
+https://aistudio.baidu.com/aistudio/projectdetail/4573549?sUid=2470186&amp;shared=1&amp;ts=1663753541400</p>
+<p>https://aistudio.baidu.com/aistudio/projectdetail/6037057</p>
 <p>paddle speech 以及对应项目</p>
-<p>paddle speech使用一句话生成，使用男声数据可能不大行，使用女声感觉还可以。和预训练数据集有关</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jerryuhoo/VTuberTalk">https://github.com/jerryuhoo/VTuberTalk</a></p>
+<p>paddle
+speech使用一句话生成，使用男声数据可能不大行，使用女声感觉还可以。和预训练数据集有关</p>
+<p>https://github.com/jerryuhoo/VTuberTalk</p>
 <p>基于paddlespeech的语音合成项目，音频-视频转数据集代码根本跑不起来</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/svc-develop-team/so-vits-svc">https://github.com/svc-develop-team/so-vits-svc</a></p>
+<p>https://github.com/svc-develop-team/so-vits-svc</p>
 <p>唱歌so-vtis，和vits算法的 不同之处在于so-vits</p>
 <table>
 <thead>
@@ -274,7 +297,8 @@
 <th>so-vits</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td></td>
 <td>用于正常语音合成</td>
 <td>singing voice conversion唱歌的</td>
@@ -289,18 +313,17 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<h1><span id="ai部属库">AI部属库</span></h1><ul>
+</tbody>
+</table>
+<h1><span id="ai部属库">AI部属库</span></h1>
+<ul>
 <li>Gradio</li>
 </ul>
-<p>能够简单实现AI&#x2F;图像算法部署web，在localhost中部署</p>
+<p>能够简单实现AI/图像算法部署web，在localhost中部署</p>
 <ul>
-<li><p>就是把前后端的一些通用的东西集成了，只改变算法部分。</p>
-</li>
+<li><p>就是把前后端的一些通用的东西集成了，只改变算法部分。</p></li>
 <li><p>只要给出输出输出，数量和给定的算法函数对应就能跑</p>
-<p>基本框架如下：使用前先加载模型，并设置对应函数</p>
-</li>
+<p>基本框架如下：使用前先加载模型，并设置对应函数</p></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app = gr.Blocks()</span><br><span class="line"><span class="keyword">with</span> app:</span><br><span class="line">    <span class="keyword">with</span> gr.Tabs():</span><br><span class="line">        <span class="keyword">with</span> gr.TabItem(<span class="string">&quot;Basic&quot;</span>):</span><br><span class="line">            gr.Markdown(value=<span class="string">&quot;&quot;&quot;&quot;&quot;&quot;</span>)</span><br><span class="line">            vc_input3 = gr.Audio(label=<span class="string">&quot;上传音频（长度小于45秒）&quot;</span>)</span><br><span class="line">            vc_submit = gr.Button(<span class="string">&quot;转换&quot;</span>, variant=<span class="string">&quot;primary&quot;</span>)</span><br><span class="line">            vc_output1 = gr.Textbox(label=<span class="string">&quot;Output Message&quot;</span>)</span><br><span class="line">            vc_output2 = gr.Audio(label=<span class="string">&quot;Output Audio&quot;</span>)</span><br><span class="line">        vc_submit.click(vc_fn, [ vc_input3], [vc_output1, vc_output2])</span><br><span class="line"></span><br><span class="line">    app.launch()</span><br></pre></td></tr></table></figure>
-
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/">http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AIGC/">AIGC</a></div><div class="post_share"><div class="social-share" data-image="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/14/ts/" title="ts"><img class="cover" src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ts</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/18/ssh-and-ssl/" title="ssh and ssl"><img class="cover" src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">ssh and ssl</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">语音</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">VAD-python</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">silero-vad-master</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">语音识别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">语音匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">剧本gt获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">语音转文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">语音-文本匹配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">语音fake生成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">AI部属库</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/03/DQN-and-GAN/" title="DQN and GAN"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DQN and GAN"/></a><div class="content"><a class="title" href="/2025/12/03/DQN-and-GAN/" title="DQN and GAN">DQN and GAN</a><time datetime="2025-12-03T04:27:20.000Z" title="Created 2025-12-03 12:27:20">2025-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/14/warp/" title="warp"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="warp"/></a><div class="content"><a class="title" href="/2025/10/14/warp/" title="warp">warp</a><time datetime="2025-10-14T13:12:46.744Z" title="Created 2025-10-14 21:12:46">2025-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/14/hello-world/" title="Hello World hexo!"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World hexo!"/></a><div class="content"><a class="title" href="/2025/10/14/hello-world/" title="Hello World hexo!">Hello World hexo!</a><time datetime="2025-10-14T13:12:46.662Z" title="Created 2025-10-14 21:12:46">2025-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/15/%E5%A4%96%E8%AE%BE%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="外设断网问题记录"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="外设断网问题记录"/></a><div class="content"><a class="title" href="/2023/08/15/%E5%A4%96%E8%AE%BE%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="外设断网问题记录">外设断网问题记录</a><time datetime="2023-08-15T11:41:34.000Z" title="Created 2023-08-15 19:41:34">2023-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/04/philosophy/" title="philosophy"><img src="http://img9.vilipix.com/picture/pages/original/2021/07/18/09/01/82100144_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="philosophy"/></a><div class="content"><a class="title" href="/2023/07/04/philosophy/" title="philosophy">philosophy</a><time datetime="2023-07-04T02:33:02.000Z" title="Created 2023-07-04 10:33:02">2023-07-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/">http://brightendavid.github.io/2023/05/13/%E8%AF%AD%E9%9F%B3%E4%BB%BB%E5%8A%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AIGC/">AIGC</a></div><div class="post_share"><div class="social-share" data-image="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/14/ts/" title="ts"><img class="cover" src="http://img9.vilipix.com/picture/pages/original/2021/07/18/09/01/82100144_p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ts</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/18/ssh-and-ssl/" title="ssh and ssl"><img class="cover" src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">ssh and ssl</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">语音</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">VAD-python</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">silero-vad-master</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">语音识别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">语音匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">剧本gt获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">语音转文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">语音-文本匹配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">语音fake生成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">AI部属库</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/12/03/DQN-and-GAN/" title="DQN and GAN"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DQN and GAN"/></a><div class="content"><a class="title" href="/2025/12/03/DQN-and-GAN/" title="DQN and GAN">DQN and GAN</a><time datetime="2025-12-03T04:27:20.000Z" title="Created 2025-12-03 12:27:20">2025-12-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/14/warp/" title="warp"><img src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="warp"/></a><div class="content"><a class="title" href="/2025/10/14/warp/" title="warp">warp</a><time datetime="2025-10-14T13:12:46.744Z" title="Created 2025-10-14 21:12:46">2025-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/14/hello-world/" title="Hello World hexo!"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World hexo!"/></a><div class="content"><a class="title" href="/2025/10/14/hello-world/" title="Hello World hexo!">Hello World hexo!</a><time datetime="2025-10-14T13:12:46.662Z" title="Created 2025-10-14 21:12:46">2025-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/15/%E5%A4%96%E8%AE%BE%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="外设断网问题记录"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="外设断网问题记录"/></a><div class="content"><a class="title" href="/2023/08/15/%E5%A4%96%E8%AE%BE%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="外设断网问题记录">外设断网问题记录</a><time datetime="2023-08-15T11:41:34.000Z" title="Created 2023-08-15 19:41:34">2023-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/04/philosophy/" title="philosophy"><img src="https://img2.huashi6.com/images/resource/2019/04/23/h74336040p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="philosophy"/></a><div class="content"><a class="title" href="/2023/07/04/philosophy/" title="philosophy">philosophy</a><time datetime="2023-07-04T02:33:02.000Z" title="Created 2023-07-04 10:33:02">2023-07-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
