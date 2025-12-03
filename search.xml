@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>DQN and GAN</title>
+      <link href="/2025/12/03/DQN-and-GAN/"/>
+      <url>/2025/12/03/DQN-and-GAN/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://brightendavid.github.io/2025/10/14/%E6%95%B0%E5%AD%A6%E5%BC%8F%E6%95%B0%E5%AD%97%E5%8C%96/lglr">https://brightendavid.github.io/2025/10/14/%E6%95%B0%E5%AD%A6%E5%BC%8F%E6%95%B0%E5%AD%97%E5%8C%96/lglr</a></p><p>数学式数字化如拉格朗日计算可见上链接</p><h1><span id="dqn">DQN</span></h1><p>DQN 就是deep Q-learn，深度Q-learn。是在强化学习中引入网络结构的一个早期比较成功的案例。基于Q-Learn算法原理做的一个应用。</p><h2><span id="核心公式">核心公式</span></h2><blockquote><p>[!NOTE]</p><p>这是TD算法，做参数最优化的工作</p></blockquote><p>$$<br>q{\tiny t+1}   &#x3D; q_t + \alpha _t[ q_\pi-\hat{q}(s{\tiny t},a,w_t)))]<br>$$</p><blockquote><p>[!NOTE]</p><p>这是引入了Q-Learn计算qπ,并对w参数向量求偏导</p></blockquote><p>$$<br>w {\tiny t+1}   &#x3D; w_t + \alpha _t[ r{\tiny t+1} + \gamma (max(\hat{q}(s{\tiny t+1},a,w_t)-\hat{q}(s{\tiny t},a,w_t)))]\bigtriangledown _w\hat{q}(s_t,a_t,w_t)<br>$$</p><p>$$<br>J(w) &#x3D;E[[  R + \gamma (max(\hat{q}(S’,a,w)-\hat{q}(S,A,w))]^2]<br>$$</p><p>设<br>$$<br>y &#x3D;  GT<br>$$<br>即前半部分的贝尔曼最优公式</p><h2><span id="网络network">网络Network</span></h2><ul><li><p>设置一个main network计算当前的q值<br>$$<br>\hat{q}(S,A,w)<br>$$</p></li><li><p>设置一个target network计算目标q值GT 即<br>$$<br>y &#x3D;  GT &#x3D;  \gamma (max(\hat{q}(S’,a,w)<br>$$</p></li></ul><h2><span id="train方法">train方法</span></h2><p>这像是一个自举式的方法，boastrapping。<br>就是自己左脚踩着右脚上天的感觉，这里感觉有点不大合适。因为贝尔曼公式本身就是迭代公式。除此之外，还有一个有意思的思想是分治思想，分阶段解决思想。<br>$$<br>V&#x3D; R +\gamma PV<br>$$<br>注意到<br>$$<br>J(w) &#x3D;E[[  R + \gamma (max(\hat{q}(S’,a,w)-\hat{q}(S,A,w))]^2]<br>$$<br>一般的深度学习网络，GT是给定的标注，是固定的。</p><p>这个公式的GT部分和Pred部分都带有训练参数w。因为qπ是需要计算的，是不知道的。</p><p>我们知道，GT和Pred同时更新，在多数情况下，会有<strong>左脚跟不上右脚</strong>的情况。</p><blockquote><p>[!CAUTION]</p><p>不妨搜索一下，在深度学习短暂的历史上，有什么方法也有这种问题。</p><p>没错，就是那种带判别器和生成器的生成模型，比如说GAN系列和现在流行的Diffusion和Stable Diffusion。</p><p>这些人最开始把判别器和生成器一起训练，结果根本就收敛不了。因为选手和裁判都在跑，选手不知道应该往哪里跑，裁判也跟着选手瞎跑。所以，采取的策略是判别器和生成器交替训练的方法。简单来说就是，选手先跑一段时间，裁判追一段时间，交替进行。</p></blockquote><p>此时，将上述两个network分别作为判别器和生成器使用，（或者说可以这么认为，实际上只是一个GT），就可以左脚踩右脚了。</p><p>具体操作方法是：</p><p>一些步骤之后更新一次GT就可以了，其他时间更新w.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> deeplearning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>warp</title>
       <link href="/2025/10/14/warp/"/>
       <url>/2025/10/14/warp/</url>
