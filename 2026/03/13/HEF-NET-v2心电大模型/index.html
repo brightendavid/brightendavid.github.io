@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HEF NET v2心电大模型 | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="NEF-NET V2: ADAPTING ELECTROCARDIO PANORAMA IN THE WILD 作者：香港科技大学（广州） 来源: ICLR2026 代码：https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;HKUSTGZ-ML4Health-Lab&amp;#x2F;NEFNET-v2 背景 心血管疾"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HEF NET v2心电大模型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-03-13 16:24:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HEF NET v2心电大模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-03-13T06:08:26.000Z" title="Created 2026-03-13 14:08:26">2026-03-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-03-13T08:24:07.690Z" title="Updated 2026-03-13 16:24:07">2026-03-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HEF NET v2心电大模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="nef-netv2-adapting-electrocardio-panorama-in-the-wild">NEF-NET
+V2: ADAPTING ELECTROCARDIO PANORAMA IN THE WILD</span></h1>
+<p>作者：香港科技大学（广州）</p>
+<p>来源: ICLR2026</p>
+<p>代码：https://github.com/HKUSTGZ-ML4Health-Lab/NEFNET-v2</p>
+<h2><span id="背景">背景</span></h2>
+<p>心血管疾病仍然是全球治病和致死的主要原因，每年夺走数百万生命，并带来深远的残疾负担。心电图（ECG）是不可或缺的一种诊疗手段，是非入侵性的，成本效益高的方法，能够迅速解释心脏电活动的复杂状态。</p>
+<p>ECG视图状态的数量和实际复杂性和心脏状态的理解的全面性直接相关。标准的12导联心电图被认为是在获取成本和临床效用的一种实用折中。</p>
+<figure>
+<img src="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/image-20260313142045323.png" alt="image-20260313142045323">
+<figcaption aria-hidden="true">image-20260313142045323</figcaption>
+</figure>
+<p>磁吸10个，还有手脚2个吗？</p>
+<h3><span id="心电图">心电图</span></h3>
+<p>心电图记录的是心脏点活动的时间序列信号，每个心脏周期可以分解为留个不重叠的波形：P波，PR，QRS复合波，ST段，T波，TP段。通常的12导联心电图广泛用于心血管筛查，通常从6个肢体导联和5个胸导联采集10秒的记录。每个导联作为独立的传感器提供心脏电活动的空间不同视角，类似计算机视觉中的多视角摄像系统。</p>
+<h3><span id="ecg心电图重建和合成">ECG心电图重建和合成</span></h3>
+<p>心电图采集过程中导联缺失，需要通过各个导联之间的相对关系重建合成。早期方法依赖线性编码，假设各个导联之间存在线性关系。之后，已开发出多种非线性方法，如RNN，LSTM，CNN等和GAN等方法更好地建模导联之间的复杂关系。</p>
+<p>chen等，2021提出心电全景的概念，实现给定视角下对任意未见视图的合成。</p>
+<h2><span id="现有方法存在缺陷">现有方法存在缺陷</span></h2>
+<ul>
+<li><p>视角信息混叠：多视角特征平均融合导致波形诊断细节被抹平，少导联监督场景下问题更突出；</p></li>
+<li><p>设备域差：不同采集设备的采样分布漂移，导致跨设备数据兼容性差；</p></li>
+<li><p>视角偏移：电极贴放误差与患者个体解剖差异，造成实际采集视角与理论视角不符；</p></li>
+<li><p>全景验证不足：公开数据集多为12导联，缺乏密集视角数据支撑全景合成能力的系统验证。</p></li>
+</ul>
+<h2><span id="具体方法">具体方法</span></h2>
+<figure>
+<img src="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/image-20260313152019701.png" alt="image-20260313152019701">
+<figcaption aria-hidden="true">image-20260313152019701</figcaption>
+</figure>
+<p>给定：三个位置的波形，能够复原出任意位置的波形。完成任意视角下的波形复原，而不需另外测量。这就是<strong>心电全景</strong>的概念。</p>
+<p>这再次应证了我的观点，大模型本质上就是一个可插值查询的数据库。只要是可插值的就可以做。</p>
+<h3><span id="阶段1-任意配对预训练">阶段1 任意配对预训练</span></h3>
+<p>针对不同设备传感器的差异，以及不同人在人口学特征上的差异。</p>
+<p>NEF-NET V2
+在异构设备的ECG病例中进行预训练，以学习基本的ECG模式，对于每个病例，被随机分为记录数据-查询数据两组。将两个肢导联指定为记录信号，这是必要的参考电位。loss使用MAE损失，就是1范数。</p>
+<h3><span id="阶段2-设备校准">阶段2 设备校准</span></h3>
+<p>不同设备在心电图采集中存在差异——包括硬件设计，电极材料。需要设备校准，用于本地适应。使用MAE
+loss对目标设备中的所有记录-查询数据进行微调。</p>
+<h3><span id="阶段3-时时校准">阶段3 时时校准</span></h3>
+<p>实际的ECG角度(<em>θ</em>real<em>,
+φ</em>real)往往会显著偏离理想角度(<em>θ, φ</em>).原因在于</p>
+<ul>
+<li>电极放置的可变性</li>
+<li>个体解剖差异</li>
+</ul>
+<p>这些精确角度通常是难以直接获得，或者必然是有误差的。</p>
+<p>引入了可学习的角偏差参数（<em>dθ,
+dφ</em>），添加到现有角度中，得到（<em>θ</em>+<em>dθ,
+φ</em>+<em>dφ</em>）为真实值。</p>
+<p>根据临床心电图记录标准（最小持续10秒），前5秒用于模型在线校准。其他参数保持不变，只微调角度参数。</p>
+<h3><span id="数据集panobench">数据集Panobench</span></h3>
+<p>相比于以往工作，构建了一个新的基准数据集Panobench包含4470条持续10秒的记录，涵盖了48个视角（6个肢体导联和42个胸导联）。每个视角标注球面坐标。</p>
+<p>以往的工作中，只包含了8/12个视图。</p>
+<h2><span id="结论">结论</span></h2>
+<p>这项工作将电生理全景合成从受控实验环境推进到实际应用场景。我们的关键方法贡献是重新定义ECG视图合成，受心脏向量理论以及Nef-Net特征平均方法作为直接视图到视图变换的局限性启发。</p>
+<p>事实上，这篇文章也只是一个多视角下的重建心电图工作，算是一个基础性质的工作吧。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/">http://brightendavid.github.io/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LLM-%E5%8C%BB%E7%96%97/">LLM,医疗</a></div><div class="post_share"><div class="social-share" data-image="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/03/17/LLMDet/" title="LLMDet"><img class="cover" src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">LLMDet</div></div></a></div><div class="next-post pull-right"><a href="/2026/03/13/OverLoCK/" title="OverLoCK"><img class="cover" src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">OverLoCK</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">NEF-NET
+V2: ADAPTING ELECTROCARDIO PANORAMA IN THE WILD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">心电图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">ECG心电图重建和合成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">现有方法存在缺陷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">具体方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">阶段1 任意配对预训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.2.</span> <span class="toc-text">阶段2 设备校准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.3.</span> <span class="toc-text">阶段3 时时校准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.4.</span> <span class="toc-text">数据集Panobench</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/18/NLPrompt/" title="NLPrompt"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/06/21/104946_78617540821.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NLPrompt"/></a><div class="content"><a class="title" href="/2026/03/18/NLPrompt/" title="NLPrompt">NLPrompt</a><time datetime="2026-03-18T06:11:03.000Z" title="Created 2026-03-18 14:11:03">2026-03-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/17/LLMDet/" title="LLMDet"><img src="https://img2.huashi6.com/images/resource/thumbnail/2022/04/01/173230_55077196870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LLMDet"/></a><div class="content"><a class="title" href="/2026/03/17/LLMDet/" title="LLMDet">LLMDet</a><time datetime="2026-03-17T06:36:48.000Z" title="Created 2026-03-17 14:36:48">2026-03-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="HEF NET v2心电大模型"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HEF NET v2心电大模型"/></a><div class="content"><a class="title" href="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="HEF NET v2心电大模型">HEF NET v2心电大模型</a><time datetime="2026-03-13T06:08:26.000Z" title="Created 2026-03-13 14:08:26">2026-03-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/13/OverLoCK/" title="OverLoCK"><img src="https://img2.huashi6.com/images/resource/2020/05/07/81376h525p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OverLoCK"/></a><div class="content"><a class="title" href="/2026/03/13/OverLoCK/" title="OverLoCK">OverLoCK</a><time datetime="2026-03-13T03:36:40.000Z" title="Created 2026-03-13 11:36:40">2026-03-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/16/RLHF/" title="RLHF"><img src="http://img9.vilipix.com/picture/pages/original/2021/07/18/09/01/82100144_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RLHF"/></a><div class="content"><a class="title" href="/2026/01/16/RLHF/" title="RLHF">RLHF</a><time datetime="2026-01-16T06:14:47.000Z" title="Created 2026-01-16 14:14:47">2026-01-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
