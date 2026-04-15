@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>segment anything（sam） | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Segment Anything  论文：《Segment Anything》 链接：https:&amp;#x2F;&amp;#x2F;arxiv.org&amp;#x2F;pdf&amp;#x2F;2304.02643.pdf 模型链接：Segment Anythingsegment-anything.com&amp;#x2F; 机构：Meta 来源：ICCV-2023"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2026/04/09/segment-anything/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'segment anything（sam）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-04-10 00:00:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">108</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.someacg.top/graph/origin/116763500_p1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">segment anything（sam）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-09T07:25:37.000Z" title="Created 2026-04-09 15:25:37">2026-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-09T16:00:28.603Z" title="Updated 2026-04-10 00:00:28">2026-04-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="segment anything（sam）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="segment-anything">Segment Anything</span></h1>
+<ul>
+<li>论文：《Segment Anything》</li>
+<li>链接：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2304.02643.pdf">https://arxiv.org/pdf/2304.02643.pdf</a></li>
+<li>模型链接：<a href="https://link.zhihu.com/?target=https%3A//segment-anything.com/">Segment
+Anythingsegment-anything.com/</a></li>
+<li>机构：<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=240696178&amp;content_type=Article&amp;match_order=1&amp;q=Meta&amp;zhida_source=entity">Meta</a></li>
+<li>来源：ICCV-2023</li>
+</ul>
+<figure>
+<img src="/2026/04/09/segment-anything/image-20260409153041498.png" alt="image-20260409153041498">
+<figcaption aria-hidden="true">image-20260409153041498</figcaption>
+</figure>
+<ul>
+<li>目标：构建一个用于图像分割的基础模型，通过设计一个Prompt输入可以实现新视觉概念和数据分布的零样本泛化。开发一个可提示的模型，并在广泛的语料库这通过一种能够实现强大泛化能力的任务进行预训练。借助该模型，可以通过提示工程解决一系列下游分割任务，在新的数据分布上实现应用。</li>
+<li>这个Prompt可以是一个（文本提示，mask
+图，坐标框，点图），用于确定所谓感兴趣区域(ROI,regions of interest)
+<ul>
+<li>什么任务能够实现零样本泛化？</li>
+<li>对应的模型架构是什么？</li>
+<li>什么数据可以赋能这个任务和模型？</li>
+</ul></li>
+</ul>
+<h2><span id="任务">任务</span></h2>
+<p>提示词学习（Prompt
+Learning）是一种有前景的方式，能够通过Prompt技术实现新数据集和新任务的零样本和少样本学习。提出一个可提示分割任务，目标是——更具任意的分割提示词返回一个有效的mask，一个Prompt指明图像中需要分割的内容。Prompt是模糊，并可能指向多个对象，输出也至少是一个对象的合理掩码。</p>
+<h2><span id="模型">模型</span></h2>
+<p>SAM更倾向于训练到一个类似LLM这样的能够用于下游任务微调的可提示模型，同时希望模型能够用于实时服务中，选择了Encoder-Decoder的比较主流的结构，encoder包含独立的两个部分，分别为提示encoder和图像encoder，生成深度内容后一同传入decoder推理计算，得到最终的分割结果</p>
+<h2><span id="数据引擎">数据引擎</span></h2>
+<p>构建了一套数据引擎解决缺乏大规模数据源的问题，动态使用模型进行数据收集，并利用新采集数据来改善模型的迭代。将模型和“模型在循环的数据集标注”共同开发，如图1-c，包括三个阶段：</p>
+<ul>
+<li>辅助人工，进行掩码标注，类似交互式分割设置。</li>
+<li>半自动，通过提示可能的物体位置自动生成掩码，标注人员标注剩余物体</li>
+<li>全自动，使用SAM标注每张图~100个高质量掩码</li>
+</ul>
+<h2><span id="数据集">数据集</span></h2>
+<p>最终的数据集包括10亿个mask，来自1100w图像。是使用数据引擎标注的，mask数量比任何现有数据集多出400倍。具有高质量和多样性。对构建新基础模型的研究人员具有价值。</p>
+<h2><span id="公平和非歧视">公平和非歧视</span></h2>
+<p>SA-1B对于不同人群和国家表现相似。希望这项工作为实际应用场景带来更加公平的结果。</p>
+<h1><span id="具体实现方法">具体实现方法</span></h1>
+<figure>
+<img src="/2026/04/09/segment-anything/image-20260409164707567.png" alt="image-20260409164707567">
+<figcaption aria-hidden="true">image-20260409164707567</figcaption>
+</figure>
+<ul>
+<li>给出的Prompt可能是模糊的。如给出一个模糊的点Prompt提示，可能会出现多种合法的mask。</li>
+</ul>
+<figure>
+<img src="/2026/04/09/segment-anything/image-20260409165041656.png" alt="image-20260409165041656">
+<figcaption aria-hidden="true">image-20260409165041656</figcaption>
+</figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2026/04/09/segment-anything/">http://brightendavid.github.io/2026/04/09/segment-anything/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/paper/">paper</a><a class="post-meta__tags" href="/tags/cv/">cv</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Circuit Tracing in Vision–Language Models</div></div></a></div><div class="next-post pull-right"><a href="/2026/04/08/medsam/" title="medsam"><img class="cover" src="https://cdn.someacg.top/graph/origin/104383987_p0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">medsam</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/03/25/LViT/" title="LViT"><img class="cover" src="https://cdn.someacg.top/graph/origin/104383987_p0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-25</div><div class="title">LViT</div></div></a></div><div><a href="/2026/03/24/MedCLIPSeg/" title="MedCLIPSeg"><img class="cover" src="https://cdn.someacg.top/graph/origin/104383987_p0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-24</div><div class="title">MedCLIPSeg</div></div></a></div><div><a href="/2026/03/19/Visual-Agentic-AI/" title="Visual Agentic AI"><img class="cover" src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-19</div><div class="title">Visual Agentic AI</div></div></a></div><div><a href="/2026/03/26/CLIP/" title="CLIP"><img class="cover" src="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-26</div><div class="title">CLIP</div></div></a></div><div><a href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-14</div><div class="title">Circuit Tracing in Vision–Language Models</div></div></a></div><div><a href="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="HEF NET v2心电大模型"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-13</div><div class="title">HEF NET v2心电大模型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">108</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Segment Anything</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">数据引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">公平和非歧视</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">具体实现方法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/15/open-cd/" title="open-cd"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="open-cd"/></a><div class="content"><a class="title" href="/2026/04/15/open-cd/" title="open-cd">open-cd</a><time datetime="2026-04-15T02:37:32.000Z" title="Created 2026-04-15 10:37:32">2026-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Circuit Tracing in Vision–Language Models"/></a><div class="content"><a class="title" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models">Circuit Tracing in Vision–Language Models</a><time datetime="2026-04-14T07:42:26.000Z" title="Created 2026-04-14 15:42:26">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/09/segment-anything/" title="segment anything（sam）"><img src="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="segment anything（sam）"/></a><div class="content"><a class="title" href="/2026/04/09/segment-anything/" title="segment anything（sam）">segment anything（sam）</a><time datetime="2026-04-09T07:25:37.000Z" title="Created 2026-04-09 15:25:37">2026-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/08/medsam/" title="medsam"><img src="https://cdn.someacg.top/graph/origin/104383987_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="medsam"/></a><div class="content"><a class="title" href="/2026/04/08/medsam/" title="medsam">medsam</a><time datetime="2026-04-08T06:15:57.000Z" title="Created 2026-04-08 14:15:57">2026-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/27/MapLe/" title="MapLe"><img src="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MapLe"/></a><div class="content"><a class="title" href="/2026/03/27/MapLe/" title="MapLe">MapLe</a><time datetime="2026-03-27T07:52:32.000Z" title="Created 2026-03-27 15:52:32">2026-03-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
