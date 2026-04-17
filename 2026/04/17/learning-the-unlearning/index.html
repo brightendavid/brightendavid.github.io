@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>learning the unlearning | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Learning the Unlearned: Mitigating Feature Suppression in Contrastive Learning 学习未被学习的内容：缓解对比学习中的特征抑制 对比学习中的特征抑制  来源：ECCV 2024 机构：香港中文大学 &amp;amp;"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2026/04/17/learning-the-unlearning/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'learning the unlearning',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-04-17 16:58:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.someacg.top/graph/origin/101504373_p0.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">learning the unlearning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-17T03:18:01.000Z" title="Created 2026-04-17 11:18:01">2026-04-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-17T08:58:16.996Z" title="Updated 2026-04-17 16:58:16">2026-04-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="learning the unlearning"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="learningthe-unlearned-mitigating-feature-suppression-in-contrastivelearning">Learning
+the Unlearned: Mitigating Feature Suppression in Contrastive
+Learning</span></h1>
+<p><strong>学习未被学习的内容：缓解对比学习中的特征抑制</strong>
+<strong>对比学习中的特征抑制</strong></p>
+<ul>
+<li>来源：ECCV 2024</li>
+<li>机构：香港中文大学 &amp; 上海人工智能实验室</li>
+<li>代码：https://github.com/MajorDavidZhang/MCL</li>
+</ul>
+<h2><span id="目的">目的</span></h2>
+<p>自监督对比学习在从无标签数据中获取高质量表示方面已证明有效。然而，无论单模态还是多模态对比学习，都面临一个重大挑战——特征抑制现象，即训练数据仅捕捉输入数据中的有限部分信息，而忽略了其他可能有价值的内容。</p>
+<p>提出了一种模型无关的多阶段对比学习(Multi stage Constrative
+Learning,MCL)框架。</p>
+<h1><span id="研究现状">研究现状</span></h1>
+<p>各种对比学习模型，作为不同领域的基础预训练骨干网络。研究表明，标准对比学习产生的表示通常遗漏输入信息的大量内容，这种现象称为特征抑制。</p>
+<figure>
+<img src="/2026/04/17/learning-the-unlearning/image-20260417143618264.png" alt="image-20260417143618264">
+<figcaption aria-hidden="true">image-20260417143618264</figcaption>
+</figure>
+<p>证据在于，图1-a中相同纹理组成的五边形和圆形对于SimClR模型难以区分；图1-b，CLIP模型对于兔子向左还是向右的表示高度相似。这说明构建的超空间有一些问题，可能导致后续语义区分的阻碍或者出现严重的模型幻觉问题。</p>
+<p>已有的解决方法，通常需要牺牲已学习到的特征，或者需要构建额外的re-contrastive
+loss。此外，这些方法使用范围局限于单模态或者多模态对比学习，缺乏普适性。</p>
+<h1><span id="创新">创新</span></h1>
+<p>提出一个新型的模型无关框架多阶段对比学习（MCL），旨在有效解决单模态和多模态设置中的特征抑制问题。旨在逐步学习在前期训练阶段未被探索的新特征，同时保留已学习到的特征。</p>
+<p>对比学习中representations倾向于已学习特征进行聚类的观察启发，在每个阶段，MCL从前期阶段分配到的聚类中为每个锚点选择负样本，而同一聚类内的样本共享相似的特征，无法被选择为负样本。那么，模型必须重新整合之前未学习到的特征——以区分锚点和负样本。</p>
+<p>贡献有三点：</p>
+<ul>
+<li>提出了一种新型的模型无关对比学习框架，多阶段对比学习，缓解了对比学习中常见的特征抑制严重问题</li>
+<li>这是首次针对单模态和多模态对比学习中的特征抑制问题进行讨论和解决的工作</li>
+<li>实验证明，MCL可以适应多种对比学习设置，从ResNet-18到ViT-L-14的多种编码器主干网络进一步提升其性能。在CLIP中，显著提高了平均准确率从20.0-32.6</li>
+</ul>
+<figure>
+<img src="/2026/04/17/learning-the-unlearning/image-20260417154049307.png" alt="image-20260417154049307">
+<figcaption aria-hidden="true">image-20260417154049307</figcaption>
+</figure>
+<p>由图可见，这是一个基本的分步处理多阶段思想，或者可以说是分治思想，属于计算机算法中一个比较常见的解决思路。举例来说：</p>
+<ul>
+<li>STAGE 0,区分了数据中的color特征。</li>
+<li>STAGE 1,区分了shape特征。</li>
+<li>STAGE 2,区分了texture特征。</li>
+</ul>
+<p>相对于单阶段的Contrastive
+Learning可能只区分了个别特征，这个方法能够构建更加符合实际的超空间。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2026/04/17/learning-the-unlearning/">http://brightendavid.github.io/2026/04/17/learning-the-unlearning/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/paper/">paper</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/" title="Vision Transformers Need More Than Registers"><img class="cover" src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Vision Transformers Need More Than Registers</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/03/26/CLIP/" title="CLIP"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-26</div><div class="title">CLIP</div></div></a></div><div><a href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img class="cover" src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-14</div><div class="title">Circuit Tracing in Vision–Language Models</div></div></a></div><div><a href="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="HEF NET v2心电大模型"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-13</div><div class="title">HEF NET v2心电大模型</div></div></a></div><div><a href="/2026/03/25/LViT/" title="LViT"><img class="cover" src="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-25</div><div class="title">LViT</div></div></a></div><div><a href="/2026/03/17/LLMDet/" title="LLMDet"><img class="cover" src="https://cdn.someacg.top/graph/origin/104383987_p0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-17</div><div class="title">LLMDet</div></div></a></div><div><a href="/2026/03/27/MapLe/" title="MapLe"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-27</div><div class="title">MapLe</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Learning
+the Unlearned: Mitigating Feature Suppression in Contrastive
+Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">目的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">研究现状</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">创新</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/17/learning-the-unlearning/" title="learning the unlearning"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="learning the unlearning"/></a><div class="content"><a class="title" href="/2026/04/17/learning-the-unlearning/" title="learning the unlearning">learning the unlearning</a><time datetime="2026-04-17T03:18:01.000Z" title="Created 2026-04-17 11:18:01">2026-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/" title="Vision Transformers Need More Than Registers"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vision Transformers Need More Than Registers"/></a><div class="content"><a class="title" href="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/" title="Vision Transformers Need More Than Registers">Vision Transformers Need More Than Registers</a><time datetime="2026-04-16T02:25:15.000Z" title="Created 2026-04-16 10:25:15">2026-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/15/open-cd/" title="open-cd"><img src="https://cdn.someacg.top/graph/origin/99705945_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="open-cd"/></a><div class="content"><a class="title" href="/2026/04/15/open-cd/" title="open-cd">open-cd</a><time datetime="2026-04-15T02:37:32.000Z" title="Created 2026-04-15 10:37:32">2026-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Circuit Tracing in Vision–Language Models"/></a><div class="content"><a class="title" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models">Circuit Tracing in Vision–Language Models</a><time datetime="2026-04-14T07:42:26.000Z" title="Created 2026-04-14 15:42:26">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/09/segment-anything/" title="segment anything（sam）"><img src="https://cdn.someacg.top/graph/origin/99705945_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="segment anything（sam）"/></a><div class="content"><a class="title" href="/2026/04/09/segment-anything/" title="segment anything（sam）">segment anything（sam）</a><time datetime="2026-04-09T07:25:37.000Z" title="Created 2026-04-09 15:25:37">2026-04-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>

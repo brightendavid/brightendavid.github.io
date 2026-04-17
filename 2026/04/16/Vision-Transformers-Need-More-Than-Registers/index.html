@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Vision Transformers Need More Than Registers | brightendavid's blog</title><meta name="author" content="brightendavid"><meta name="copyright" content="brightendavid"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vision Transformers Need More Than Registers  代码：https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;ChengShiest&amp;#x2F;LAST-ViT&amp;#x2F; 来源：cvpr2026  Vision Transformers 需要的不止Registers寄存器"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://brightendavid.github.io/2026/04/16/Vision-Transformers-Need-More-Than-Registers/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vision Transformers Need More Than Registers',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-04-16 17:06:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.someacg.top/graph/origin/101504373_p0.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="brightendavid's blog"><span class="site-name">brightendavid's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vision Transformers Need More Than Registers</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-16T02:25:15.000Z" title="Created 2026-04-16 10:25:15">2026-04-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-04-16T09:06:06.284Z" title="Updated 2026-04-16 17:06:06">2026-04-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vision Transformers Need More Than Registers"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="visiontransformers-need-more-than-registers">Vision
+Transformers Need More Than Registers</span></h1>
+<ul>
+<li>代码：https://github.com/ChengShiest/LAST-ViT/</li>
+<li>来源：cvpr2026</li>
+</ul>
+<p>Vision Transformers 需要的不止Registers寄存器</p>
+<figure>
+<img src="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/image-20260416102953024.png" alt="image-20260416102953024">
+<figcaption aria-hidden="true">image-20260416102953024</figcaption>
+</figure>
+<p>如上图所示，卷积模型的注意力是正确的，而Transformer模型的注意力却体现在背景上，这是异常的。说明，Transformer模型实际上是将背景作为学习的主要依据。</p>
+<p>ViTs进行预训练后，为多种下游任务提供了通用表示。然而，ViTs中普遍存在各种伪影，这些伪影在多种不同的监督范式和下游任务中都有观察到。这些伪影来源于一种“懒惰聚合”行为(a
+lazy aggregation
+behavior)：ViTs利用语义无关的背景补丁作为捷径来表示全局语义，这是由全局注意力和粗粒度语义监督驱动的。</p>
+<p>这些现象表明，ViTs中存在一个共同的根本问题，只是在不同的监督范式下表现形式不同。现在的一些解决方案，只能部分解决这个问题，例如Register方法。但是无法全面解决。</p>
+<p>为了在不同范式中建立这些现象中的统一定义，我们引入了Patch Score
+,即Patch features和CLS
+token（封装图像全局语义）之间的相似性，从而评价局部语义一致性和全局表示，这种对比和训练范式无关。</p>
+<p>Patch Score的目的在于，不同监督方式下的ViT，训练目标是使得CLS
+token和监督信号对齐，在密集特征中出现偏差会导致非前景区域的Patch
+Score升高。</p>
+<p>Point-in-Box,PiB点在框指标，评估得分最高的Patch是否在标注的前景区域。</p>
+<h2><span id="伪影">伪影</span></h2>
+<ul>
+<li>自然图像固有的包含和主要物体无关的背景Patch，仅通过图像级监督，模型缺乏空间引导，倾向于通过背景(懒惰聚合)编码全局语义。移除预训练ViT中得分最高的50%片段对于ImageNet数据集的准确率影响不大，证明了这个解释。</li>
+<li>全局依赖的图像级编码使得ViT使用这些额外的补丁作为快捷方式，表示全局语义，ViT可能使用这种方法，将前景语义扩散到背景中。</li>
+</ul>
+<h2><span id="具体的">具体的</span></h2>
+<p>基于这一解释，进一步提出一种简单方案消除这种伪影。通过在预训练阶段调节背景块的影响，使ViTs专注于背景语义。</p>
+<h1><span id="contribution">Contribution</span></h1>
+<ul>
+<li>通过Patch
+Score和point-in-Box系统性的分析了ViTs中伪影(artifacts)的根源，掲示了一种背景主导的偏差。（这种偏差实际上2020年的时候就已经被
+提出了。</li>
+<li>提出了一种假设，将粗粒度语义监督和全局依赖，与懒惰聚合联系起来，这是一种捷径行为，因为ViTs通过依赖背景Patch来编码全局语义，而不是真正关注前景。</li>
+<li>提出了LaSt-ViT,一种简单的具有频率感知的选取聚合方案，将CLS
+token锚定为前景区域</li>
+<li>在12个基准测试中展示了持续的性能提升，包括语义分割，目标识别，和开放词汇检测。</li>
+</ul>
+<h1><span id="具体实施细节">具体实施细节</span></h1>
+<figure>
+<img src="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/image-20260416150428343.png" alt="image-20260416150428343">
+<figcaption aria-hidden="true">image-20260416150428343</figcaption>
+</figure>
+<p>可见实验做得还是非常充分的。</p>
+<ul>
+<li>2-a:前景和背景在Patch-score的分布不同</li>
+<li>2-b:移除一些high-score的patch之后，模型的表现可能更好</li>
+<li>3:res-net的注意力始终在前景上(约70%)，而ViT-B/16的注意力大约只有0.4在前景上。结果也表明了resnet的指标更好。并且，PiB指标从训练开始就基本不变，说明这个误导是从训练开始就存在的，而不是训练后期的产品。</li>
+</ul>
+<h2><span id="方法">方法</span></h2>
+<p>简单来说，就是做了数据预处理，类似做到一个前景分割的效果。这篇文章的价值主要还是在前面的分析实验部分，属于炒冷饭，希望大家关注模型本质的问题，（虽然这个问题疑似已经提出过了，2020年有些说法是“Transformer识别飞机坦克靠的是背景是天空还是草地”）。在操作部分，并没有很复杂的理论创新，只是做了一个类前景分割。但是从效果来看，还是有一些说法的，可以打榜，有一些指标的进步。</p>
+<figure>
+<img src="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/image-20260416163125510.png" alt="image-20260416163125510">
+<figcaption aria-hidden="true">image-20260416163125510</figcaption>
+</figure>
+<ul>
+<li>（4）傅里叶变换，相当于做了一个低通滤波，得到的x_patch是图像的低频部分，这一部分应当大部分属于前景部分。作者认为前景物体属于低频信号，背景中的高频信号较多。我认为这个想法可能还需要一些研究。至少应当加一个频域分析的实验证明这一点。</li>
+<li>(5)得到了mask,就是全图_l/全图_h，那么原本的低频部分就会突出，这样就得到了前景mask，就可以分割出前景了。</li>
+<li>(6,7)就是选出了前景部分，只使用前景部分的Patch得到最后的结果。只将这
+<em>K</em> 个 Patch 的特征平均起来，作为最终的 CLS 输出。</li>
+</ul>
+<p>我认为这一部分有一些过于简单了，使用傅里叶变换又有一些故作玄虚。想要做前景分割明明有不少看着更加精妙的方法的，却选了这个比较低级的方法。</p>
+<p>那么，这篇文章要讲的故事是这样的（大模型真好用）</p>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 26%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">步骤</th>
+<th style="text-align: left;">公式逻辑</th>
+<th style="text-align: left;">对应的物理直觉</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 发现问题</strong></td>
+<td style="text-align: left;"><strong>Patch Score (公式3)</strong></td>
+<td style="text-align: left;">“咦，为什么代表整张图的 CLS
+特征，和那些无关的背景块长得这么像？”</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 提出假设</strong></td>
+<td style="text-align: left;"><strong>(文中文字逻辑)</strong></td>
+<td style="text-align: left;">因为背景块太多太容易学了，模型“偷懒”，用背景来凑数代表全局。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 解决思路</strong></td>
+<td style="text-align: left;"><strong>(频域分析)</strong></td>
+<td style="text-align: left;">前景是“实在”的（低频稳定），背景是“花哨”的（高频噪声多）。用滤波器把花哨的去掉。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. 实施筛选</strong></td>
+<td style="text-align: left;"><strong>Stability Score
+(公式5)</strong></td>
+<td style="text-align: left;">给特征做“体检”，变化小的（前景）给高分，变化大的（背景）给低分。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5. 最终决策</strong></td>
+<td style="text-align: left;"><strong>Top-K Pooling
+(公式7)</strong></td>
+<td style="text-align: left;">“只看分数最高的那几块特征。”（强制模型关注前景）</td>
+</tr>
+</tbody>
+</table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io">brightendavid</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://brightendavid.github.io/2026/04/16/Vision-Transformers-Need-More-Than-Registers/">http://brightendavid.github.io/2026/04/16/Vision-Transformers-Need-More-Than-Registers/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/paper/">paper</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/04/17/learning-the-unlearning/" title="learning the unlearning"><img class="cover" src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">learning the unlearning</div></div></a></div><div class="next-post pull-right"><a href="/2026/04/15/open-cd/" title="open-cd"><img class="cover" src="https://cdn.someacg.top/graph/origin/99705945_p0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">open-cd</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/03/26/CLIP/" title="CLIP"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-26</div><div class="title">CLIP</div></div></a></div><div><a href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img class="cover" src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-14</div><div class="title">Circuit Tracing in Vision–Language Models</div></div></a></div><div><a href="/2026/03/13/HEF-NET-v2%E5%BF%83%E7%94%B5%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="HEF NET v2心电大模型"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-13</div><div class="title">HEF NET v2心电大模型</div></div></a></div><div><a href="/2026/03/25/LViT/" title="LViT"><img class="cover" src="https://cdn.someacg.top/graph/origin/116763500_p1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-25</div><div class="title">LViT</div></div></a></div><div><a href="/2026/03/17/LLMDet/" title="LLMDet"><img class="cover" src="https://cdn.someacg.top/graph/origin/104383987_p0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-17</div><div class="title">LLMDet</div></div></a></div><div><a href="/2026/03/27/MapLe/" title="MapLe"><img class="cover" src="https://cdn.someacg.top/graph/origin/99601033_p0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-27</div><div class="title">MapLe</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fas fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=2oJ_tAjZh9xa28T3L7EXz0QNXKwCMd6ruM6IbGewPCA"></script><script id="clustrmaps" type="text/javascript" defer="defer" src="******************"></script></div></div><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">brightendavid</div><div class="author-info__description">马达马达得思,but Shambhala is not far away.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">110</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/brightendavid"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Ciallo～(∠・ω< )⌒★. I am a college student majoring in IS and CS.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Vision
+Transformers Need More Than Registers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">伪影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">具体的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Contribution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">具体实施细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/17/learning-the-unlearning/" title="learning the unlearning"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="learning the unlearning"/></a><div class="content"><a class="title" href="/2026/04/17/learning-the-unlearning/" title="learning the unlearning">learning the unlearning</a><time datetime="2026-04-17T03:18:01.000Z" title="Created 2026-04-17 11:18:01">2026-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/" title="Vision Transformers Need More Than Registers"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vision Transformers Need More Than Registers"/></a><div class="content"><a class="title" href="/2026/04/16/Vision-Transformers-Need-More-Than-Registers/" title="Vision Transformers Need More Than Registers">Vision Transformers Need More Than Registers</a><time datetime="2026-04-16T02:25:15.000Z" title="Created 2026-04-16 10:25:15">2026-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/15/open-cd/" title="open-cd"><img src="https://cdn.someacg.top/graph/origin/99705945_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="open-cd"/></a><div class="content"><a class="title" href="/2026/04/15/open-cd/" title="open-cd">open-cd</a><time datetime="2026-04-15T02:37:32.000Z" title="Created 2026-04-15 10:37:32">2026-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models"><img src="https://cdn.someacg.top/graph/origin/101504373_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Circuit Tracing in Vision–Language Models"/></a><div class="content"><a class="title" href="/2026/04/14/Circuit-Tracing-in-Vision%E2%80%93Language-Models/" title="Circuit Tracing in Vision–Language Models">Circuit Tracing in Vision–Language Models</a><time datetime="2026-04-14T07:42:26.000Z" title="Created 2026-04-14 15:42:26">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/09/segment-anything/" title="segment anything（sam）"><img src="https://cdn.someacg.top/graph/origin/99705945_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="segment anything（sam）"/></a><div class="content"><a class="title" href="/2026/04/09/segment-anything/" title="segment anything（sam）">segment anything（sam）</a><time datetime="2026-04-09T07:25:37.000Z" title="Created 2026-04-09 15:25:37">2026-04-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By brightendavid</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
